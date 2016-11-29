@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Catch Phrase AdFree</string>
+
+    <string name="dummy_content">Tap To\nStart</string>
+    <string name="play">New Game</string>
+    <string name="how_to_play">How To Play</string>
+    <string name="practice_round">Practice Round</string>
+
+</resources>

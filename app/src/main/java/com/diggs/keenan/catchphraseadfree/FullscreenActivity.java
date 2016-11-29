@@ -40,12 +40,19 @@ public class FullscreenActivity extends AppCompatActivity {
     private final int SLOW = 0;
     private final int MEDIUM = 1;
     private final int FAST = 2;
+    private final int BUZZER = 3;
 
     // handles the sound makers
     final Handler booperHandler = new Handler();
+    final Runnable runny = new Runnable() {
+        @Override
+        public void run() {
+            play();
+        }
+    };
     final int[] durations = new int[4];
     private boolean isPlaying = false;
-    int count = 0;
+    int boopCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +62,15 @@ public class FullscreenActivity extends AppCompatActivity {
         // Continue hiding Nav bar even if a volume change triggers the system UI
         final View decorView = getWindow().getDecorView();
         decorView
-            .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
-            {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility)
-                {
-                    if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0)
-                    {
-                        decorView.setSystemUiVisibility(flags);
-                    }
+                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
+        {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    decorView.setSystemUiVisibility(flags);
                 }
-            });
+            }
+        });
 
         setContentView(R.layout.activity_fullscreen);
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
@@ -88,7 +93,6 @@ public class FullscreenActivity extends AppCompatActivity {
             ioe.printStackTrace();
         }
 
-        createMediaPlayers();
         setScreenListener();
     }
 
@@ -116,10 +120,10 @@ public class FullscreenActivity extends AppCompatActivity {
                     isPlaying = true;
 
                     Random r = new Random();
-                    durations[0] = r.nextInt((35 - 25) + 25) * 1000; // slow duration
-                    durations[1] = r.nextInt((30 - 20) + 20) * 1000; // medium duration
-                    durations[2] = r.nextInt((25 - 15) + 15) * 1000; // fast duration
-                    durations[3] = 4500;
+                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
+                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
+                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
+                    durations[BUZZER] = 4500;
 
                     play();
                 }
@@ -129,56 +133,42 @@ public class FullscreenActivity extends AppCompatActivity {
 
     private void play() {
         int duration;
-        if (count < 4) {
-            if (count == SLOW) {
-                slowBooper.start();
-                if (slowBooper == null) {
-                    Log.d("slowPlay","wtf?");
-                }
-                Log.d("count", "slow");
-            } else if (count == MEDIUM)  {
+        if (boopCounter < 4) {
+            if (boopCounter == SLOW) {
+                if (slowBooper != null)
+                    slowBooper.start();
+            } else if (boopCounter == MEDIUM)  {
                 if (slowBooper != null) {
                     slowBooper.release();
                     slowBooper = null;
                 }
-                if (medBooper == null) {
-                    Log.d("medPlay","wtf?");
-                }
-                Log.d("count", "med");
-                medBooper.start();
-            } else if (count == FAST) {
+                if (medBooper != null)
+                    medBooper.start();
+            } else if (boopCounter == FAST) {
                 if (medBooper != null) {
                     medBooper.release();
                     medBooper = null;
                 }
-                if (fastBooper == null) {
-                    Log.d("fastPlay", "wtf?");
-                }
-                Log.d("count", "fast");
-                fastBooper.start();
+                if (fastBooper != null)
+                    fastBooper.start();
             } else {
                 if (fastBooper != null) {
                     fastBooper.release();
                     fastBooper = null;
                 }
-                Log.d("count", "buzztime");
-                buzzer.start();
+                if (buzzer != null)
+                    buzzer.start();
             }
 
-            duration = durations[count++];
-            booperHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Log.d("count is", count + "");
-                    play();
-                }
-            }, duration);
+            duration = durations[boopCounter++];
+            booperHandler.postDelayed(runny, duration);
+
         } else {
             if (buzzer != null) {
                 buzzer.release();
                 buzzer = null;
             }
-            count = 0;
+            boopCounter = 0;
         }
     }
 
@@ -205,6 +195,8 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+
+        booperHandler.removeCallbacks(runny);
 
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -235,6 +227,8 @@ public class FullscreenActivity extends AppCompatActivity {
         super.onResume();
         goFullscreen();
 
+        boopCounter = 0;
+
         // remember position in word list
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         currentWordIndex = preferences.getInt("CurrentIndex", 0);
@@ -244,7 +238,6 @@ public class FullscreenActivity extends AppCompatActivity {
 
         if (slowBooper == null) {
             Log.d("slowREsume", "wtf");
-
         }
         if (medBooper ==  null) {
             Log.d("medResume","wtf!");
@@ -257,6 +250,5 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-
     }
 }

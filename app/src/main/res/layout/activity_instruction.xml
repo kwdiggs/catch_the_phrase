@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="16dp"
+        tools:context="com.diggs.keenan.catchphraseadfree.InstructionActivity">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="4dp"
+            android:text="@string/overview_heading"
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/overview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="4dp"
+            android:text="@string/objective_heading"
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/objective"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginBottom="4dp"
+            android:text="@string/rules_heading"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rules"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+</ScrollView>

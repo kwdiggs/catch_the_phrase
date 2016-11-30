@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showInstructions(View view) {
-        Intent intent = new Intent(this, ScoreboardActivity.class);
+        Intent intent = new Intent(this, InstructionActivity.class);
         startActivity(intent);
     }
 }

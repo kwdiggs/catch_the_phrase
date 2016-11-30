@@ -18,7 +18,7 @@
         android:gravity="center"
         android:text="@string/award_point"
         android:textSize="30sp"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold" />
 
     <Button android:id="@+id/team_one"
@@ -26,7 +26,7 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_below="@id/scoreboard_header"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:background="@drawable/button_menu"
         android:text="@string/team_one"
         android:textSize="20sp"

@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScoreboardActivity" />
-        <activity android:name=".Instructions"></activity>
+        <activity android:name=".InstructionActivity"></activity>
     </application>
 
 </manifest>

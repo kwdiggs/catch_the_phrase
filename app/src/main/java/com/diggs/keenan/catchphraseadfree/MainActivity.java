@@ -17,4 +17,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FullscreenActivity.class);
         startActivity(intent);
     }
+
+    public void startTest(View view) {
+        Intent intent = new Intent(this, ScoreboardActivity.class);
+        startActivity(intent);
+    }
+
+    public void showInstructions(View view) {
+        Intent intent = new Intent(this, ScoreboardActivity.class);
+        startActivity(intent);
+    }
 }

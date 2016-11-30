@@ -9,13 +9,13 @@
     <!-- TextView for word bank -->
     <TextView
         android:id="@+id/fullscreen_content"
+        android:keepScreenOn="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:keepScreenOn="true"
         android:text="@string/dummy_content"
-        android:textColor="@color/white"
         android:textSize="50sp"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
 </FrameLayout>

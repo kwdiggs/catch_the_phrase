@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Catch Phrase AdFree</string>
 
-    <string name="dummy_content">Tap To\nStart</string>
     <string name="play">New Game</string>
     <string name="how_to_play">How To Play</string>
     <string name="practice_round">Practice Round</string>
+
+    <string name="dummy_content">Tap To\nStart</string>
+    <string name="award_point">Award Point</string>
+    <string name="team_one">Team 1</string>
+    <string name="team_two">Team 2</string>
 
 </resources>

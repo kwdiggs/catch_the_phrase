@@ -17,26 +17,30 @@
         android:layout_weight="1"
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_menu"
+        android:text="@string/play"
+        android:textSize="20sp"
         android:textColor="@color/white"
-        android:onClick="startPracticeRound"
-        android:text="@string/play"/>
+        android:onClick="startPracticeRound" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/button_menu"
         android:layout_weight="1"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/button_menu"
+        android:text="@string/how_to_play"
+        android:textSize="20sp"
         android:textColor="@color/white"
-        android:text="@string/how_to_play" />
+        android:onClick="showInstructions" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/button_menu"
+        android:text="@string/practice_round"
+        android:textSize="20sp"
         android:textColor="@color/white"
-        android:onClick="startPracticeRound"
-        android:text="@string/practice_round"/>
+        android:onClick="startTest" />
 
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,13 +24,17 @@ public class ScoreboardActivity extends AppCompatActivity {
     // score goal
     private final int GOAL = 7;
 
+    private final int PRACTICE_SCORE = 1;
+    private final int SCORE = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoreboard);
+        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
 
-        team1 = (Button) findViewById(R.id.team_one);
-        team2 = (Button) findViewById(R.id.team_two);
+        team1 = (Button)findViewById(R.id.team_one);
+        team2 = (Button)findViewById(R.id.team_two);
 
         if (!isPracticeRound) {
             teamOneScore = 0;
@@ -38,20 +43,21 @@ public class ScoreboardActivity extends AppCompatActivity {
             setButtonListener(team1);
             setButtonListener(team2);
         } else {
-            setButtonListenerPractice(team1);
-            setButtonListenerPractice(team1);
+            setPracticeButtonListener(team1);
+            setPracticeButtonListener(team2);
         }
     }
 
     // send control flow back to main menu after button touch
-    private void setButtonListenerPractice(final Button button) {
+    private void setPracticeButtonListener(final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ScoreboardActivity.this, getString(R.string.practice_over),
                         Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ScoreboardActivity.this, MainActivity.class);
-                startActivity(intent);
+                Log.d("SCOREBOARD", "about to call result, omg!");
+                setResult(RESULT_OK);
+                finish();
             }
         });
     }
@@ -62,19 +68,21 @@ public class ScoreboardActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String scores = "Team 1 score: " + teamOneScore + "\n";
+                scores += "Team 2 score: " + teamTwoScore;
+
                 if (button.getId() == R.id.team_one && teamOneScore + 1 == GOAL) {
-                    startActivity(new Intent(ScoreboardActivity.this, MainActivity.class));
+                    // go to fanfare, celebrate team 1 win
+
                 } else if (button.getId() == R.id.team_one) {
-                    Toast.makeText(ScoreboardActivity.this, "Team 1 has " + teamOneScore +
-                            " points.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(ScoreboardActivity.this, GameplayActivity.class));
+                    Toast.makeText(ScoreboardActivity.this, scores, Toast.LENGTH_LONG).show();
                 } else if (button.getId() == R.id.team_two && teamTwoScore +1 == GOAL) {
-                    startActivity(new Intent(ScoreboardActivity.this, MainActivity.class));
+                    // go to fanfare, celebrate team 2 win
+
                 } else if (button.getId() == R.id.team_two) {
-                    Toast.makeText(ScoreboardActivity.this, "Team 2 has " + teamTwoScore +
-                            " points.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(ScoreboardActivity.this, GameplayActivity.class));
+                    Toast.makeText(ScoreboardActivity.this, scores, Toast.LENGTH_LONG).show();
                 }
+                finish();
             }
         });
     }
@@ -83,6 +91,5 @@ public class ScoreboardActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         FullScreenHelper.goFullscreen(this);
-        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
     }
 }

@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -49,6 +50,10 @@ public class GameplayActivity extends AppCompatActivity {
     private boolean isPlaying = false;
     int boopCounter = 0;
 
+    // request codes
+    private final int PRACTICE_SCORE = 1;
+    private final int SCORE = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +78,6 @@ public class GameplayActivity extends AppCompatActivity {
         } catch(IOException ioe){
             ioe.printStackTrace();
         }
-
         isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
         setScreenListener();
     }
@@ -150,8 +154,9 @@ public class GameplayActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ScoreboardActivity.class);
             if (isPracticeRound) {
                 intent.putExtra("practice_round", true);
+                startActivityForResult(intent, PRACTICE_SCORE);
             }
-            startActivity(intent);
+            startActivityForResult(intent, SCORE);
         }
     }
 
@@ -171,6 +176,19 @@ public class GameplayActivity extends AppCompatActivity {
             player.release();
             player = null;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PRACTICE_SCORE && resultCode == RESULT_OK) {
+            Log.d("This method", "WAS CALLED");
+            finish();
+        }
+//        else if (requestCode == SCORE && requestCode == RESULT_OK) {
+//
+//        }
     }
 
     @Override

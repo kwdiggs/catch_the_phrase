@@ -7,7 +7,7 @@ import android.view.View;
  * Created by keenan on 12/1/16.
  */
 public final class FullScreenHelper {
-    // visibility flags
+    // define visibility flags
     public static final int FLAGS = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -15,6 +15,7 @@ public final class FullScreenHelper {
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
+    // apply visibility flags to activity
     public static void goFullscreen(Activity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(FullScreenHelper.FLAGS);
 

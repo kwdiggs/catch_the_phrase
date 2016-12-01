@@ -53,9 +53,8 @@ public class ScoreboardActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ScoreboardActivity.this, getString(R.string.practice_over),
-                        Toast.LENGTH_SHORT).show();
-                Log.d("SCOREBOARD", "about to call result, omg!");
+                Toast.makeText(ScoreboardActivity.this, R.string.practice_over,Toast.LENGTH_SHORT)
+                        .show();
                 setResult(RESULT_OK);
                 finish();
             }

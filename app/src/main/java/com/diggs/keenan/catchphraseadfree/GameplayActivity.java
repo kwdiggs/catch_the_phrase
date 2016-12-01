@@ -155,8 +155,9 @@ public class GameplayActivity extends AppCompatActivity {
             if (isPracticeRound) {
                 intent.putExtra("practice_round", true);
                 startActivityForResult(intent, PRACTICE_SCORE);
+            } else {
+                startActivityForResult(intent, SCORE);
             }
-            startActivityForResult(intent, SCORE);
         }
     }
 

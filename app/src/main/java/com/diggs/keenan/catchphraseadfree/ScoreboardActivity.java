@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -85,7 +84,7 @@ public class ScoreboardActivity extends AppCompatActivity {
                     editor.putInt("team_one_score", ++teamOneScore).apply();
                     Toast.makeText(ScoreboardActivity.this, "Team 1 has " + teamOneScore +
                             " points.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(ScoreboardActivity.this, FullscreenActivity.class));
+                    startActivity(new Intent(ScoreboardActivity.this, GameplayActivity.class));
                 } else if (button.getId() == R.id.team_two && teamTwoScore +1 == GOAL) {
                     editor.putInt("team_two_score", 0).apply();
                     startActivity(new Intent(ScoreboardActivity.this, MainActivity.class));
@@ -93,7 +92,7 @@ public class ScoreboardActivity extends AppCompatActivity {
                     editor.putInt("team_two_score", ++teamTwoScore).apply();
                     Toast.makeText(ScoreboardActivity.this, "Team 2 has " + teamTwoScore +
                             " points.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(ScoreboardActivity.this, FullscreenActivity.class));
+                    startActivity(new Intent(ScoreboardActivity.this, GameplayActivity.class));
                 }
             }
         });

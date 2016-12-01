@@ -24,21 +24,20 @@ public class ScoreboardActivity extends AppCompatActivity {
     // score goal
     private final int GOAL = 7;
 
-    private final int PRACTICE_SCORE = 1;
-    private final int SCORE = 2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoreboard);
-        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
+
+        Intent intent = getIntent();
+        isPracticeRound = intent.getBooleanExtra("practice_round", false);
 
         team1 = (Button)findViewById(R.id.team_one);
         team2 = (Button)findViewById(R.id.team_two);
 
         if (!isPracticeRound) {
-            teamOneScore = 0;
-            teamTwoScore = 0;
+            teamOneScore = intent.getIntExtra("team_one_score", 0);
+            teamTwoScore = intent.getIntExtra("team_two_score", 0);
 
             setButtonListener(team1);
             setButtonListener(team2);
@@ -53,8 +52,6 @@ public class ScoreboardActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ScoreboardActivity.this, R.string.practice_over,Toast.LENGTH_SHORT)
-                        .show();
                 setResult(RESULT_OK);
                 finish();
             }
@@ -67,19 +64,25 @@ public class ScoreboardActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String scores = "Team 1 score: " + teamOneScore + "\n";
-                scores += "Team 2 score: " + teamTwoScore;
-
+                Intent intent = new Intent();
                 if (button.getId() == R.id.team_one && teamOneScore + 1 == GOAL) {
+                    Log.d("hello", "how did it come to this");
                     // go to fanfare, celebrate team 1 win
-
+                    setResult(RESULT_CANCELED);
                 } else if (button.getId() == R.id.team_one) {
-                    Toast.makeText(ScoreboardActivity.this, scores, Toast.LENGTH_LONG).show();
+                    Log.d("hello", "my love");
+                    intent.putExtra("team_one_score", ++teamOneScore);
+                    intent.putExtra("team_two_score", teamTwoScore);
+                    setResult(RESULT_OK, intent);
                 } else if (button.getId() == R.id.team_two && teamTwoScore +1 == GOAL) {
                     // go to fanfare, celebrate team 2 win
-
+                    Log.d("hello", "i like");
+                    setResult(RESULT_CANCELED);
                 } else if (button.getId() == R.id.team_two) {
-                    Toast.makeText(ScoreboardActivity.this, scores, Toast.LENGTH_LONG).show();
+                    Log.d("hello", "where we are");
+                    intent.putExtra("team_one_score", teamOneScore);
+                    intent.putExtra("team_two_score", ++teamTwoScore);
+                    setResult(RESULT_OK, intent);
                 }
                 finish();
             }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -51,8 +52,12 @@ public class GameplayActivity extends AppCompatActivity {
     int boopCounter = 0;
 
     // request codes
-    private final int PRACTICE_SCORE = 1;
-    private final int SCORE = 2;
+    private final int PRACTICE_ROUND = 1;
+    private final int NORMAL_ROUND = 2;
+
+    // team scores
+    private int teamOneScore;
+    private int teamTwoScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,10 @@ public class GameplayActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gameplay);
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
+
+        Intent intent = getIntent();
+        teamOneScore = intent.getIntExtra("team_one_score", 0);
+        teamTwoScore = intent.getIntExtra("team_two_score", 0);
 
         wordList = new ArrayList<>();
         currentWordIndex = getCurrentIndex();
@@ -78,6 +87,8 @@ public class GameplayActivity extends AppCompatActivity {
         } catch(IOException ioe){
             ioe.printStackTrace();
         }
+
+        // assign practiceRound value and set listener for TextView
         isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
         setScreenListener();
     }
@@ -151,12 +162,17 @@ public class GameplayActivity extends AppCompatActivity {
             duration = durations[boopCounter++];
             booperHandler.postDelayed(runny, duration);
         } else {
+            releaseMediaPlayer(buzzer);
             Intent intent = new Intent(this, ScoreboardActivity.class);
             if (isPracticeRound) {
+                Log.d("hello", "practice round");
                 intent.putExtra("practice_round", true);
-                startActivityForResult(intent, PRACTICE_SCORE);
+                startActivityForResult(intent, PRACTICE_ROUND);
             } else {
-                startActivityForResult(intent, SCORE);
+                Log.d("hello", "normal round");
+                intent.putExtra("team_one_score", teamOneScore);
+                intent.putExtra("team_two_score", teamTwoScore);
+                startActivityForResult(intent, NORMAL_ROUND);
             }
         }
     }
@@ -183,13 +199,21 @@ public class GameplayActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == PRACTICE_SCORE && resultCode == RESULT_OK) {
-            Log.d("This method", "WAS CALLED");
+        if (requestCode == PRACTICE_ROUND && resultCode == RESULT_OK) {
+            Toast.makeText(this, R.string.practice_over, Toast.LENGTH_SHORT).show();
+            finish();
+        } else if (requestCode == PRACTICE_ROUND && resultCode == RESULT_CANCELED) {
+            finish();
+        } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_OK) {
+            teamOneScore = data.getIntExtra("team_one_score", 0);
+            teamTwoScore = data.getIntExtra("team_two_score", 0);
+            String scores = "Team One score: " + teamOneScore + "\n";
+            scores += "Team Two score: " + teamTwoScore;
+            Toast.makeText(this, scores, Toast.LENGTH_LONG).show();
+        } else {
+            Log.d("hello", "QUIT NORMAL WITH ERROR");
             finish();
         }
-//        else if (requestCode == SCORE && requestCode == RESULT_OK) {
-//
-//        }
     }
 
     @Override
@@ -201,13 +225,11 @@ public class GameplayActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        booperHandler.removeCallbacks(runny);
-
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("CurrentIndex", currentWordIndex);
-        editor.apply();
+        editor.putInt("CurrentIndex", currentWordIndex).apply();
 
+        booperHandler.removeCallbacks(runny);
         releaseMediaPlayer(slowBooper);
         releaseMediaPlayer(medBooper);
         releaseMediaPlayer(fastBooper);
@@ -218,18 +240,25 @@ public class GameplayActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d("hi", "ON RESUME CALLED!!!");
         FullScreenHelper.goFullscreen(this);
+
+        // renable touches and prep default clue
+        mContentView.setEnabled(true);
+        if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
+            mContentView.setText(R.string.default_clue);
+        } else {
+            mContentView.setText(R.string.continue_clue);
+        }
 
         // reset play() variables
         boopCounter = 0;
         isPlaying = false;
+        createMediaPlayers();
 
         // remember position in word list
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         currentWordIndex = preferences.getInt("CurrentIndex", 0);
-
-        // reset all boopers
-        createMediaPlayers();
     }
 
     @Override

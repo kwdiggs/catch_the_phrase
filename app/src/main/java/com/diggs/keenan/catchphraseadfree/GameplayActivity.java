@@ -18,14 +18,6 @@ import java.util.Random;
 
 
 public class GameplayActivity extends AppCompatActivity {
-    // visibility flags
-    final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-
     // holds the words
     private ArrayList<String> wordList;
     private int currentWordIndex;
@@ -60,7 +52,6 @@ public class GameplayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        goFullscreen();
 
         setContentView(R.layout.activity_gameplay);
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
@@ -104,13 +95,10 @@ public class GameplayActivity extends AppCompatActivity {
     private void createMediaPlayers() {
         slowBooper = MediaPlayer.create(this, R.raw.slow_boop);
         slowBooper.setLooping(true);
-
         medBooper = MediaPlayer.create(this, R.raw.med_boop);
         medBooper.setLooping(true);
-
         fastBooper = MediaPlayer.create(this, R.raw.fast_boop);
         fastBooper.setLooping(true);
-
         buzzer = MediaPlayer.create(this, R.raw.timeup);
     }
 
@@ -156,10 +144,8 @@ public class GameplayActivity extends AppCompatActivity {
                 releaseMediaPlayer(fastBooper);
                 startMediaPlayer(buzzer);
             }
-
             duration = durations[boopCounter++];
             booperHandler.postDelayed(runny, duration);
-
         } else {
             Intent intent = new Intent(this, ScoreboardActivity.class);
             if (isPracticeRound) {
@@ -185,24 +171,6 @@ public class GameplayActivity extends AppCompatActivity {
             player.release();
             player = null;
         }
-    }
-
-    // helper method: apply fullscreen flags to window
-    private void goFullscreen() {
-        getWindow().getDecorView().setSystemUiVisibility(flags);
-
-        // Continue hiding Nav bar even if a volume change triggers the system UI
-        final View decorView = getWindow().getDecorView();
-        decorView
-            .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
-            {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                        decorView.setSystemUiVisibility(flags);
-                    }
-                }
-            });
     }
 
     @Override
@@ -231,7 +199,7 @@ public class GameplayActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        goFullscreen();
+        FullScreenHelper.goFullscreen(this);
 
         // reset play() variables
         boopCounter = 0;

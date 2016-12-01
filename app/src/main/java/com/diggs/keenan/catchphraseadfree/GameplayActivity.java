@@ -87,6 +87,20 @@ public class GameplayActivity extends AppCompatActivity {
         setScreenListener();
     }
 
+    // retrieve the next word from the list
+    private String getNextWord() {
+        currentWordIndex = (currentWordIndex >= wordList.size())? 0 : currentWordIndex;
+        return wordList.get(currentWordIndex++);
+    }
+
+    // the number of the word in the list
+    private int getCurrentIndex() {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        int currentIndex = preferences.getInt("CurrentIndex", 0);
+        return currentIndex;
+    }
+
+    // create boopers and buzzer
     private void createMediaPlayers() {
         slowBooper = MediaPlayer.create(this, R.raw.slow_boop);
         slowBooper.setLooping(true);
@@ -126,6 +140,7 @@ public class GameplayActivity extends AppCompatActivity {
         });
     }
 
+    // play the boopers or buzzer in the appropriate sequence
     private void play() {
         int duration;
         if (boopCounter < 4) {
@@ -154,15 +169,7 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    // abstract null check and call to release
-    private void releaseMediaPlayer(MediaPlayer player) {
-        if (player != null) {
-            player.release();
-            player = null;
-        }
-    }
-
-    // abstract away null check for start
+    // helper method: abstract away null check for start
     private void startMediaPlayer(MediaPlayer player) {
         if (player != null) {
             player.start();
@@ -172,17 +179,15 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    private String getNextWord(){
-        currentWordIndex = (currentWordIndex >= wordList.size())? 0 : currentWordIndex;
-        return wordList.get(currentWordIndex++);
+    // helper method: abstract null check and call to release
+    private void releaseMediaPlayer(MediaPlayer player) {
+        if (player != null) {
+            player.release();
+            player = null;
+        }
     }
 
-    private int getCurrentIndex() {
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        int currentIndex = preferences.getInt("CurrentIndex", 0);
-        return currentIndex;
-    }
-
+    // helper method: apply fullscreen flags to window
     private void goFullscreen() {
         getWindow().getDecorView().setSystemUiVisibility(flags);
 
@@ -228,6 +233,7 @@ public class GameplayActivity extends AppCompatActivity {
         super.onResume();
         goFullscreen();
 
+        // reset play() variables
         boopCounter = 0;
         isPlaying = false;
 

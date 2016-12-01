@@ -6,7 +6,7 @@
     tools:context=".GameplayActivity"
     android:keepScreenOn="true">
 
-    <!-- TextView for word bank -->
+    <!-- TextView for word display -->
     <TextView
         android:id="@+id/fullscreen_content"
         android:keepScreenOn="true"
@@ -17,5 +17,4 @@
         android:textSize="50sp"
         android:textColor="@color/white"
         android:textStyle="bold" />
-
 </FrameLayout>

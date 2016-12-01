@@ -4,10 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/background_color"
     tools:context="com.diggs.keenan.catchphraseadfree.ScoreboardActivity">
 
@@ -16,32 +12,32 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_stripe"
         android:text="@string/award_point"
         android:textSize="30sp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <Button android:id="@+id/team_one"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:layout_below="@id/scoreboard_header"
-        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
         android:background="@drawable/button_menu"
         android:text="@string/team_one"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/white" />
 
     <Button android:id="@+id/team_two"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:layout_below="@id/scoreboard_header"
-        android:layout_toRightOf="@id/team_one"
-        android:layout_alignParentRight="true"
         android:background="@drawable/button_menu"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:text="@string/team_two"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/white" />
 </LinearLayout>

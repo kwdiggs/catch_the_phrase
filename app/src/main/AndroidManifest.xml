@@ -25,5 +25,4 @@
         <activity android:name=".ScoreboardActivity" />
         <activity android:name=".InstructionActivity" />
     </application>
-
 </manifest>

@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class ScoreboardActivity extends AppCompatActivity {
-
     // visibility flags
     private final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -39,9 +38,7 @@ public class ScoreboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_scoreboard);
-        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
 
         team1 = (Button) findViewById(R.id.team_one);
         team2 = (Button) findViewById(R.id.team_two);
@@ -60,6 +57,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         }
     }
 
+    // send control flow back to main menu after button touch
     private void setButtonListenerPractice(final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,9 +70,10 @@ public class ScoreboardActivity extends AppCompatActivity {
         });
     }
 
+    // if there is no victor, send control flow back to GamePlay for the next round
+    // otherwise, send flow to victory fanfare
     private void setButtonListener(final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (button.getId() == R.id.team_one && teamOneScore + 1 == GOAL) {
@@ -98,12 +97,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        goFullscreen();
-    }
-
+    // helper method: apply visibility flags to window
     private void goFullscreen() {
         getWindow().getDecorView().setSystemUiVisibility(flags);
 
@@ -111,13 +105,20 @@ public class ScoreboardActivity extends AppCompatActivity {
         final View decorView = getWindow().getDecorView();
         decorView
             .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
-            {
-                @Override
-                public void onSystemUiVisibilityChange(int visibility) {
-                    if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                        decorView.setSystemUiVisibility(flags);
-                    }
+        {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    decorView.setSystemUiVisibility(flags);
                 }
-            });
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        goFullscreen();
+        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
     }
 }

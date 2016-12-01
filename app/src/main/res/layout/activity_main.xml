@@ -20,7 +20,7 @@
         android:text="@string/play"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:onClick="startNewGame" />
+        android:onClick="testScoreboard" />
 
     <Button
         android:layout_width="match_parent"

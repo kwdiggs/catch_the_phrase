@@ -15,16 +15,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void startPracticeRound(View view) {
         Intent intent = new Intent(this, FullscreenActivity.class);
+        intent.putExtra("practice_round", true);
         startActivity(intent);
     }
 
-    public void startTest(View view) {
-        Intent intent = new Intent(this, ScoreboardActivity.class);
+    public void startNewGame(View view) {
+        Intent intent = new Intent(this, FullscreenActivity.class);
         startActivity(intent);
     }
 
     public void showInstructions(View view) {
         Intent intent = new Intent(this, InstructionActivity.class);
+        startActivity(intent);
+    }
+
+    public void testScoreboard (View view) {
+        Intent intent = new Intent(this, ScoreboardActivity.class);
         startActivity(intent);
     }
 }

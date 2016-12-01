@@ -1,5 +1,6 @@
 package com.diggs.keenan.catchphraseadfree;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -22,7 +23,7 @@ public class FullscreenActivity extends AppCompatActivity {
     private ArrayList<String> wordList;
     private int currentWordIndex;
 
-    // shows the words
+    // displays the words
     private TextView mContentView;
 
     // visibility flags
@@ -32,6 +33,9 @@ public class FullscreenActivity extends AppCompatActivity {
             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+    // determine if user decided for a practice round or a full game
+    private boolean isPracticeRound;
 
     // makes the sounds
     private MediaPlayer slowBooper, medBooper, fastBooper, buzzer;
@@ -93,6 +97,7 @@ public class FullscreenActivity extends AppCompatActivity {
             ioe.printStackTrace();
         }
 
+        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
         setScreenListener();
     }
 
@@ -120,10 +125,14 @@ public class FullscreenActivity extends AppCompatActivity {
                     isPlaying = true;
 
                     Random r = new Random();
-                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
-                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
-                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
+//                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
+//                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
+//                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
                     durations[BUZZER] = 4500;
+
+                    durations[SLOW] = 2000;
+                    durations[MEDIUM] = 2000;
+                    durations[FAST] = 2000;
 
                     play();
                 }
@@ -156,19 +165,21 @@ public class FullscreenActivity extends AppCompatActivity {
                     fastBooper.release();
                     fastBooper = null;
                 }
-                if (buzzer != null)
+                if (buzzer != null) {
                     buzzer.start();
+                    mContentView.setEnabled(false);
+                }
             }
 
             duration = durations[boopCounter++];
             booperHandler.postDelayed(runny, duration);
 
         } else {
-            if (buzzer != null) {
-                buzzer.release();
-                buzzer = null;
+            Intent intent = new Intent(this, ScoreboardActivity.class);
+            if (isPracticeRound) {
+                intent.putExtra("practice_round", true);
             }
-            boopCounter = 0;
+            startActivity(intent);
         }
     }
 

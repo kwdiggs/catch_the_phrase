@@ -20,7 +20,7 @@
         android:text="@string/play"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:onClick="startPracticeRound" />
+        android:onClick="testScoreboard" />
 
     <Button
         android:layout_width="match_parent"
@@ -41,6 +41,6 @@
         android:text="@string/practice_round"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:onClick="startTest" />
+        android:onClick="startPracticeRound" />
 
 </LinearLayout>

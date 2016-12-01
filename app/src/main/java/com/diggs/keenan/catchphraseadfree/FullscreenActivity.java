@@ -19,13 +19,6 @@ import java.util.Random;
 
 
 public class FullscreenActivity extends AppCompatActivity {
-    // holds the words
-    private ArrayList<String> wordList;
-    private int currentWordIndex;
-
-    // displays the words
-    private TextView mContentView;
-
     // visibility flags
     final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -33,6 +26,13 @@ public class FullscreenActivity extends AppCompatActivity {
             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+    // holds the words
+    private ArrayList<String> wordList;
+    private int currentWordIndex;
+
+    // displays the words
+    private TextView mContentView;
 
     // determine if user decided for a practice round or a full game
     private boolean isPracticeRound;
@@ -62,19 +62,6 @@ public class FullscreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         goFullscreen();
-
-        // Continue hiding Nav bar even if a volume change triggers the system UI
-        final View decorView = getWindow().getDecorView();
-        decorView
-                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
-        {
-            @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                    decorView.setSystemUiVisibility(flags);
-                }
-            }
-        });
 
         setContentView(R.layout.activity_fullscreen);
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
@@ -144,31 +131,16 @@ public class FullscreenActivity extends AppCompatActivity {
         int duration;
         if (boopCounter < 4) {
             if (boopCounter == SLOW) {
-                if (slowBooper != null)
-                    slowBooper.start();
+                startMediaPlayer(slowBooper);
             } else if (boopCounter == MEDIUM)  {
-                if (slowBooper != null) {
-                    slowBooper.release();
-                    slowBooper = null;
-                }
-                if (medBooper != null)
-                    medBooper.start();
+                releaseMediaPlayer(slowBooper);
+                startMediaPlayer(medBooper);
             } else if (boopCounter == FAST) {
-                if (medBooper != null) {
-                    medBooper.release();
-                    medBooper = null;
-                }
-                if (fastBooper != null)
-                    fastBooper.start();
+                releaseMediaPlayer(medBooper);
+                startMediaPlayer(fastBooper);
             } else {
-                if (fastBooper != null) {
-                    fastBooper.release();
-                    fastBooper = null;
-                }
-                if (buzzer != null) {
-                    buzzer.start();
-                    mContentView.setEnabled(false);
-                }
+                releaseMediaPlayer(fastBooper);
+                startMediaPlayer(buzzer);
             }
 
             duration = durations[boopCounter++];
@@ -180,6 +152,25 @@ public class FullscreenActivity extends AppCompatActivity {
                 intent.putExtra("practice_round", true);
             }
             startActivity(intent);
+        }
+    }
+
+
+    // abstract null check and call to release
+    private void releaseMediaPlayer(MediaPlayer player) {
+        if (player != null) {
+            player.release();
+            player = null;
+        }
+    }
+
+    // abstract away null check for start
+    private void startMediaPlayer(MediaPlayer player) {
+        if (player != null) {
+            player.start();
+        }
+        if (player == buzzer) {
+            mContentView.setEnabled(false);
         }
     }
 
@@ -196,6 +187,19 @@ public class FullscreenActivity extends AppCompatActivity {
 
     private void goFullscreen() {
         getWindow().getDecorView().setSystemUiVisibility(flags);
+
+        // Continue hiding Nav bar even if a volume change triggers the system UI
+        final View decorView = getWindow().getDecorView();
+        decorView
+            .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
+            {
+                @Override
+                public void onSystemUiVisibilityChange(int visibility) {
+                    if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                        decorView.setSystemUiVisibility(flags);
+                    }
+                }
+            });
     }
 
     @Override
@@ -212,24 +216,12 @@ public class FullscreenActivity extends AppCompatActivity {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("CurrentIndex", currentWordIndex);
-        editor.commit();
+        editor.apply();
 
-        if (slowBooper != null) {
-            slowBooper.release();
-            slowBooper = null;
-        }
-        if (medBooper != null) {
-            medBooper.release();
-            medBooper = null;
-        }
-        if (fastBooper != null) {
-            fastBooper.release();
-            fastBooper = null;
-        }
-        if (buzzer != null) {
-            buzzer.release();
-            buzzer = null;
-        }
+        releaseMediaPlayer(slowBooper);
+        releaseMediaPlayer(medBooper);
+        releaseMediaPlayer(fastBooper);
+        releaseMediaPlayer(buzzer);
     }
 
 
@@ -239,6 +231,7 @@ public class FullscreenActivity extends AppCompatActivity {
         goFullscreen();
 
         boopCounter = 0;
+        isPlaying = false;
 
         // remember position in word list
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
@@ -246,16 +239,6 @@ public class FullscreenActivity extends AppCompatActivity {
 
         // reset all boopers
         createMediaPlayers();
-
-        if (slowBooper == null) {
-            Log.d("slowREsume", "wtf");
-        }
-        if (medBooper ==  null) {
-            Log.d("medResume","wtf!");
-        }
-        if (fastBooper == null) {
-            Log.d("fastresume", "wtf?");
-        }
     }
 
     @Override

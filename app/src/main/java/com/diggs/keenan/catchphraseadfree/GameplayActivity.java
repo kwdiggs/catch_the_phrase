@@ -184,7 +184,7 @@ public class GameplayActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mContentView.setText(getNextWord());
 
-                //
+                // set random timer durations on first touch
                 if (!isFirstTap) {
                     isFirstTap = true;
 
@@ -256,7 +256,7 @@ public class GameplayActivity extends AppCompatActivity {
         super.onResume();
         FullScreenHelper.goFullscreen(this);
 
-        // renable touches and prep default clue
+        // enable touches and display default clue
         mContentView.setEnabled(true);
         if (isPracticeRound) {
             mContentView.setText(R.string.practice_clue);

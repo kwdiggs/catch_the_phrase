@@ -17,7 +17,7 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <stroke
-                android:color="@color/colorPrimaryDark"
+                android:color="@color/colorPrimary"
                 android:width="4dp" />
 
             <solid

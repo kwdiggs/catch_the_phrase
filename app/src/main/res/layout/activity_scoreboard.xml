@@ -16,7 +16,7 @@
         android:background="@drawable/background_stripe"
         android:text="@string/award_point"
         android:textSize="30sp"
-        android:textColor="@color/white"
+        android:textColor="@drawable/button_text_color"
         android:textStyle="bold" />
 
     <Button android:id="@+id/team_one"
@@ -27,7 +27,7 @@
         android:background="@drawable/button_menu"
         android:text="@string/team_one"
         android:textSize="20sp"
-        android:textColor="@color/white" />
+        android:textColor="@drawable/button_text_color" />
 
     <Button android:id="@+id/team_two"
         android:layout_width="match_parent"
@@ -39,5 +39,5 @@
         android:layout_marginRight="16dp"
         android:text="@string/team_two"
         android:textSize="20sp"
-        android:textColor="@color/white" />
+        android:textColor="@drawable/button_text_color" />
 </LinearLayout>

@@ -16,6 +16,7 @@ public class FanfareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fanfare);
 
+        fanfare = MediaPlayer.create(this, R.raw.victory);
 
         gameResult = (TextView)findViewById(R.id.game_result);
         String result = getIntent().getStringExtra("winner");
@@ -33,16 +34,15 @@ public class FanfareActivity extends AppCompatActivity {
             }
         });
 
-//        if (fanfare != null) {
-//
-//        }
+        if (fanfare != null) {
+            fanfare.start();
+        }
     }
 
     // release media player
     @Override
     protected void onPause() {
         super.onPause();
-
         if (fanfare != null) {
             fanfare.release();
             fanfare = null;
@@ -52,7 +52,6 @@ public class FanfareActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         FullScreenHelper.goFullscreen(this);
     }
 }

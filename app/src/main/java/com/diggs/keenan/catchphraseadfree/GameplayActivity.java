@@ -27,37 +27,40 @@ public class GameplayActivity extends AppCompatActivity {
     // displays the words
     private TextView mContentView;
 
-    // determine if user decided for a practice round or a full game
+    // determine if user selected a practice round or a full game
     private boolean isPracticeRound;
 
-    // makes the sounds
-    private MediaPlayer slowBooper, medBooper, fastBooper, buzzer;
+    // plays the sounds
+    private MediaPlayer slowTimer;
+    private MediaPlayer medTimer;
+    private MediaPlayer fastTimer;
+    private MediaPlayer buzzer;
 
-    // used to destroy the sound makers
+    // used to destroy the MediaPlayers
     private final int SLOW = 0;
     private final int MEDIUM = 1;
     private final int FAST = 2;
     private final int BUZZER = 3;
 
     // handles the sound makers
-    final Handler booperHandler = new Handler();
-    final Runnable runny = new Runnable() {
+    final Handler timerHandler = new Handler();
+    final Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
             play();
         }
     };
-    final int[] durations = new int[4];
+    private final int[] durations = new int[4];
     private boolean isPlaying = false;
-    int boopCounter = 0;
-
-    // team scores
-    private int teamOneScore;
-    private int teamTwoScore;
+    private int timerCount = 0;
 
     // request codes
     private final int PRACTICE_ROUND = 1;
     private final int NORMAL_ROUND = 2;
+
+    // team scores
+    private int teamOneScore;
+    private int teamTwoScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,14 +109,14 @@ public class GameplayActivity extends AppCompatActivity {
         return currentIndex;
     }
 
-    // create boopers and buzzer
+    // create timers and buzzer
     private void createMediaPlayers() {
-        slowBooper = MediaPlayer.create(this, R.raw.slow_boop);
-        slowBooper.setLooping(true);
-        medBooper = MediaPlayer.create(this, R.raw.med_boop);
-        medBooper.setLooping(true);
-        fastBooper = MediaPlayer.create(this, R.raw.fast_boop);
-        fastBooper.setLooping(true);
+        slowTimer = MediaPlayer.create(this, R.raw.slow_boop);
+        slowTimer.setLooping(true);
+        medTimer = MediaPlayer.create(this, R.raw.med_boop);
+        medTimer.setLooping(true);
+        fastTimer = MediaPlayer.create(this, R.raw.fast_boop);
+        fastTimer.setLooping(true);
         buzzer = MediaPlayer.create(this, R.raw.timeup);
     }
 
@@ -146,21 +149,21 @@ public class GameplayActivity extends AppCompatActivity {
     // play the boopers or buzzer in the appropriate sequence
     private void play() {
         int duration;
-        if (boopCounter < 4) {
-            if (boopCounter == SLOW) {
-                startMediaPlayer(slowBooper);
-            } else if (boopCounter == MEDIUM)  {
-                releaseMediaPlayer(slowBooper);
-                startMediaPlayer(medBooper);
-            } else if (boopCounter == FAST) {
-                releaseMediaPlayer(medBooper);
-                startMediaPlayer(fastBooper);
+        if (timerCount < 4) {
+            if (timerCount == SLOW) {
+                startMediaPlayer(slowTimer);
+            } else if (timerCount == MEDIUM)  {
+                releaseMediaPlayer(slowTimer);
+                startMediaPlayer(medTimer);
+            } else if (timerCount == FAST) {
+                releaseMediaPlayer(medTimer);
+                startMediaPlayer(fastTimer);
             } else {
-                releaseMediaPlayer(fastBooper);
+                releaseMediaPlayer(fastTimer);
                 startMediaPlayer(buzzer);
             }
-            duration = durations[boopCounter++];
-            booperHandler.postDelayed(runny, duration);
+            duration = durations[timerCount++];
+            timerHandler.postDelayed(timerRunnable, duration);
         } else {
             releaseMediaPlayer(buzzer);
             Intent intent = new Intent(this, ScoreboardActivity.class);
@@ -232,10 +235,10 @@ public class GameplayActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("CurrentIndex", currentWordIndex).apply();
 
-        booperHandler.removeCallbacks(runny);
-        releaseMediaPlayer(slowBooper);
-        releaseMediaPlayer(medBooper);
-        releaseMediaPlayer(fastBooper);
+        timerHandler.removeCallbacks(timerRunnable);
+        releaseMediaPlayer(slowTimer);
+        releaseMediaPlayer(medTimer);
+        releaseMediaPlayer(fastTimer);
         releaseMediaPlayer(buzzer);
     }
 
@@ -256,7 +259,7 @@ public class GameplayActivity extends AppCompatActivity {
         }
 
         // reset play() variables
-        boopCounter = 0;
+        timerCount = 0;
         isPlaying = false;
         createMediaPlayers();
 

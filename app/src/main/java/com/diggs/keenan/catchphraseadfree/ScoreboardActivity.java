@@ -22,7 +22,7 @@ public class ScoreboardActivity extends AppCompatActivity {
     private int teamTwoScore;
 
     // score goal
-    private final int GOAL = 2;
+    private final int GOAL = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

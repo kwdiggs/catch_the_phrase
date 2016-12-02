@@ -1,9 +1,11 @@
 package com.diggs.keenan.catchphraseadfree;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,7 +53,7 @@ public class GameplayActivity extends AppCompatActivity {
         }
     };
     private final int[] durations = new int[4];
-    private boolean isPlaying = false;
+    private boolean isFirstTap = false;
     private int timerCount = 0;
 
     // request codes
@@ -62,22 +64,30 @@ public class GameplayActivity extends AppCompatActivity {
     private int teamOneScore;
     private int teamTwoScore;
 
+    // how long (ms) to vibrate device when a round concludes
+    private final int VIBRATE_DURATION = 1200;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_gameplay);
+
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
 
+        // get team scores
         Intent intent = getIntent();
         teamOneScore = intent.getIntExtra("team_one_score", 0);
         teamTwoScore = intent.getIntExtra("team_two_score", 0);
 
-        wordList = new ArrayList<>();
-        currentWordIndex = getCurrentIndex();
+        // assign practiceRound value and set listener for TextView
+        isPracticeRound = intent.getBooleanExtra("practice_round", false);
+        setScreenListener();
 
         // put word list in ArrayList of Strings
         // do this once on creation
+        wordList = new ArrayList<>();
+        currentWordIndex = getCurrentIndex();
+
         BufferedReader reader;
         try{
             final InputStream file = getAssets().open("Words.txt");
@@ -90,63 +100,9 @@ public class GameplayActivity extends AppCompatActivity {
         } catch(IOException ioe){
             ioe.printStackTrace();
         }
-
-        // assign practiceRound value and set listener for TextView
-        isPracticeRound = getIntent().getBooleanExtra("practice_round", false);
-        setScreenListener();
     }
 
-    // retrieve the next word from the list
-    private String getNextWord() {
-        currentWordIndex = (currentWordIndex >= wordList.size())? 0 : currentWordIndex;
-        return wordList.get(currentWordIndex++);
-    }
-
-    // the number of the word in the list
-    private int getCurrentIndex() {
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        int currentIndex = preferences.getInt("CurrentIndex", 0);
-        return currentIndex;
-    }
-
-    // create timers and buzzer
-    private void createMediaPlayers() {
-        slowTimer = MediaPlayer.create(this, R.raw.slow_boop);
-        slowTimer.setLooping(true);
-        medTimer = MediaPlayer.create(this, R.raw.med_boop);
-        medTimer.setLooping(true);
-        fastTimer = MediaPlayer.create(this, R.raw.fast_boop);
-        fastTimer.setLooping(true);
-        buzzer = MediaPlayer.create(this, R.raw.timeup);
-    }
-
-    // get new word when screen is tapped
-    private void setScreenListener() {
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mContentView.setText(getNextWord());
-
-                if (!isPlaying) {
-                    isPlaying = true;
-
-                    Random r = new Random();
-//                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
-//                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
-//                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
-                    durations[BUZZER] = 4500;
-
-                    durations[SLOW] = 2000;
-                    durations[MEDIUM] = 2000;
-                    durations[FAST] = 2000;
-
-                    play();
-                }
-            }
-        });
-    }
-
-    // play the boopers or buzzer in the appropriate sequence
+    // start a timer or the buzzer in the appropriate sequence
     private void play() {
         int duration;
         if (timerCount < 4) {
@@ -161,6 +117,8 @@ public class GameplayActivity extends AppCompatActivity {
             } else {
                 releaseMediaPlayer(fastTimer);
                 startMediaPlayer(buzzer);
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(VIBRATE_DURATION);
             }
             duration = durations[timerCount++];
             timerHandler.postDelayed(timerRunnable, duration);
@@ -180,28 +138,12 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    // helper method: abstract away null check for start
-    private void startMediaPlayer(MediaPlayer player) {
-        if (player != null) {
-            player.start();
-        }
-        if (player == buzzer) {
-            mContentView.setEnabled(false);
-        }
-    }
-
-    // helper method: abstract null check and call to release
-    private void releaseMediaPlayer(MediaPlayer player) {
-        if (player != null) {
-            player.release();
-            player = null;
-        }
-    }
-
+    // retrieve game state from ScoreboardActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        // vary behavior by results
         if (requestCode == PRACTICE_ROUND && resultCode == RESULT_OK) {
             Toast.makeText(this, R.string.practice_over, Toast.LENGTH_SHORT).show();
             finish();
@@ -222,10 +164,76 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+    // retrieve the next word from the list
+    private String getNextWord() {
+        currentWordIndex = (currentWordIndex >= wordList.size())? 0 : currentWordIndex;
+        return wordList.get(currentWordIndex++);
     }
+
+    // the number of the word in the list
+    private int getCurrentIndex() {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        int currentIndex = preferences.getInt("CurrentIndex", 0);
+        return currentIndex;
+    }
+
+    // get new word when screen is tapped
+    private void setScreenListener() {
+        mContentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContentView.setText(getNextWord());
+
+                //
+                if (!isFirstTap) {
+                    isFirstTap = true;
+
+                    Random r = new Random();
+//                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
+//                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
+//                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
+                    durations[BUZZER] = 4500;
+
+                    durations[SLOW] = 2000;
+                    durations[MEDIUM] = 2000;
+                    durations[FAST] = 2000;
+
+                    play();
+                }
+            }
+        });
+    }
+
+
+    // create timers and buzzer
+    private void createMediaPlayers() {
+        slowTimer = MediaPlayer.create(this, R.raw.slow_boop);
+        slowTimer.setLooping(true);
+        medTimer = MediaPlayer.create(this, R.raw.med_boop);
+        medTimer.setLooping(true);
+        fastTimer = MediaPlayer.create(this, R.raw.fast_boop);
+        fastTimer.setLooping(true);
+        buzzer = MediaPlayer.create(this, R.raw.timeup);
+    }
+
+    // helper method: abstract away null check for start
+    private void startMediaPlayer(MediaPlayer player) {
+        if (player != null) {
+            player.start();
+        }
+        if (player == buzzer) {
+            mContentView.setEnabled(false);
+        }
+    }
+
+    // helper method: abstract null check and call to release
+    private void releaseMediaPlayer(MediaPlayer player) {
+        if (player != null) {
+            player.release();
+            player = null;
+        }
+    }
+
 
     @Override
     protected void onPause() {
@@ -260,16 +268,11 @@ public class GameplayActivity extends AppCompatActivity {
 
         // reset play() variables
         timerCount = 0;
-        isPlaying = false;
+        isFirstTap = false;
         createMediaPlayers();
 
         // remember position in word list
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         currentWordIndex = preferences.getInt("CurrentIndex", 0);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 }

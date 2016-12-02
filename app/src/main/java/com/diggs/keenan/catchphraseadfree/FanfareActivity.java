@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class FanfareActivity extends AppCompatActivity {
-    private TextView gameResult;
+    private TextView gameResultView;
     private MediaPlayer fanfare;
 
     @Override
@@ -16,25 +16,24 @@ public class FanfareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fanfare);
 
-        fanfare = MediaPlayer.create(this, R.raw.victory);
-
-        gameResult = (TextView)findViewById(R.id.game_result);
-        String result = getIntent().getStringExtra("winner");
-        Log.d("s", "MADE IT TO FANFARE ACTIVITY, result is " + result);
-        if (result.equals("team_one")) {
-            gameResult.setText(R.string.team_one_wins);
-        } else if (result.equals("team_two")) {
-            gameResult.setText(R.string.team_two_wins);
+        gameResultView = (TextView)findViewById(R.id.game_result);
+        String resultString = getIntent().getStringExtra("winner");
+        if (resultString.equals("team_one")) {
+            gameResultView.setText(R.string.team_one_wins);
+        } else if (resultString.equals("team_two")) {
+            gameResultView.setText(R.string.team_two_wins);
         }
 
-        gameResult.setOnClickListener(new View.OnClickListener() {
+        gameResultView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        if (fanfare != null) {
+        fanfare = MediaPlayer.create(this, R.raw.victory);
+
+        if (!fanfare.isPlaying()) {
             fanfare.start();
         }
     }

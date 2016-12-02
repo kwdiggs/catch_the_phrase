@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Log.d("hello", "prepping fanfare activity...");
-
         // launch fanfare activity if the game is over
         if (requestCode == START_REQUEST && resultCode == RESULT_OK) {
             Intent intent = new Intent(this, FanfareActivity.class);

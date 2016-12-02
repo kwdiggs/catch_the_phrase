@@ -22,7 +22,7 @@ public class ScoreboardActivity extends AppCompatActivity {
     private int teamTwoScore;
 
     // score goal
-    private final int GOAL = 7;
+    private final int GOAL = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,20 +66,17 @@ public class ScoreboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 if (button.getId() == R.id.team_one && teamOneScore + 1 == GOAL) {
-                    Log.d("hello", "how did it come to this");
-                    // go to fanfare, celebrate team 1 win
-                    setResult(RESULT_CANCELED);
+                    intent.putExtra("winner", "team_one");
+                    setResult(RESULT_FIRST_USER, intent);
                 } else if (button.getId() == R.id.team_one) {
                     Log.d("hello", "my love");
                     intent.putExtra("team_one_score", ++teamOneScore);
                     intent.putExtra("team_two_score", teamTwoScore);
                     setResult(RESULT_OK, intent);
                 } else if (button.getId() == R.id.team_two && teamTwoScore +1 == GOAL) {
-                    // go to fanfare, celebrate team 2 win
-                    Log.d("hello", "i like");
-                    setResult(RESULT_CANCELED);
+                    intent.putExtra("winner", "team_two");
+                    setResult(RESULT_FIRST_USER, intent);
                 } else if (button.getId() == R.id.team_two) {
-                    Log.d("hello", "where we are");
                     intent.putExtra("team_one_score", teamOneScore);
                     intent.putExtra("team_two_score", ++teamTwoScore);
                     setResult(RESULT_OK, intent);

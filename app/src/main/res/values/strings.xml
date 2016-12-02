@@ -1,17 +1,29 @@
 <resources>
     <string name="app_name">Catch The Phrase</string>
 
+    <!-- main menu labels -->
     <string name="play">New Game</string>
     <string name="how_to_play">How To Play</string>
     <string name="practice_round">Practice Round</string>
 
+    <!-- GameplayActivity  -->
     <string name="default_clue">Tap To\nStart</string>
+    <string name="practice_clue">Tap To\nPractice</string>
     <string name="continue_clue">Tap To\nContinue</string>
+
+    <!-- ScoreboardActivity -->
     <string name="award_point">Award Point</string>
     <string name="team_one">Team 1</string>
     <string name="team_two">Team 2</string>
 
-    <!-- Long How-To-Play strings for InstructionActivity -->
+    <!-- Conclusion of a practice round -->
+    <string name="practice_over">End of Practice Round</string>
+
+    <!-- Conclusion of a full game -->
+    <string name="team_one_wins">Team 1\nWins!</string>
+    <string name="team_two_wins">Team 2\nWins!</string>
+
+    <!-- How-To-Play strings for InstructionActivity -->
     <string name="overview_heading">Overview</string>
     <string name="overview">
         Catch the Phrase is a hot potato word game for two teams. When the game begins, a timer will
@@ -42,8 +54,4 @@
         \t&#8226; \u00A0Say how many words are in a multi-word clue (e.g. 3 words in \"Kick the
         bucket\").
     </string>
-
-    <!-- Conclusion of a Practice Round -->
-    <string name="practice_over">End of Practice Round</string>
-
 </resources>

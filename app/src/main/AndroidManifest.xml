@@ -24,5 +24,7 @@
         </activity>
         <activity android:name=".ScoreboardActivity" />
         <activity android:name=".InstructionActivity" />
+        <activity android:name=".FanfareActivity"></activity>
     </application>
+
 </manifest>

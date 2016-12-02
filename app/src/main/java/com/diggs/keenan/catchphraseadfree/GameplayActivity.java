@@ -51,13 +51,13 @@ public class GameplayActivity extends AppCompatActivity {
     private boolean isPlaying = false;
     int boopCounter = 0;
 
-    // request codes
-    private final int PRACTICE_ROUND = 1;
-    private final int NORMAL_ROUND = 2;
-
     // team scores
     private int teamOneScore;
     private int teamTwoScore;
+
+    // request codes
+    private final int PRACTICE_ROUND = 1;
+    private final int NORMAL_ROUND = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,16 +202,19 @@ public class GameplayActivity extends AppCompatActivity {
         if (requestCode == PRACTICE_ROUND && resultCode == RESULT_OK) {
             Toast.makeText(this, R.string.practice_over, Toast.LENGTH_SHORT).show();
             finish();
-        } else if (requestCode == PRACTICE_ROUND && resultCode == RESULT_CANCELED) {
-            finish();
         } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_OK) {
             teamOneScore = data.getIntExtra("team_one_score", 0);
             teamTwoScore = data.getIntExtra("team_two_score", 0);
-            String scores = "Team One score: " + teamOneScore + "\n";
-            scores += "Team Two score: " + teamTwoScore;
+            String scores = "Team one score: " + teamOneScore + "\n";
+            scores += "Team two score: " + teamTwoScore;
             Toast.makeText(this, scores, Toast.LENGTH_LONG).show();
+        } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_FIRST_USER) {
+            Intent intent = new Intent();
+            intent.putExtra("winner", data.getStringExtra("winner"));
+            setResult(RESULT_OK, intent);
+            finish();
         } else {
-            Log.d("hello", "QUIT NORMAL WITH ERROR");
+            Log.d("hello", "QUIT WITH ERROR");
             finish();
         }
     }
@@ -240,12 +243,13 @@ public class GameplayActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("hi", "ON RESUME CALLED!!!");
         FullScreenHelper.goFullscreen(this);
 
         // renable touches and prep default clue
         mContentView.setEnabled(true);
-        if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
+        if (isPracticeRound) {
+            mContentView.setText(R.string.practice_clue);
+        } else if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
             mContentView.setText(R.string.default_clue);
         } else {
             mContentView.setText(R.string.continue_clue);

@@ -42,7 +42,7 @@ public class GameplayActivity extends AppCompatActivity {
     private final int FAST = 2;
     private final int BUZZER = 3;
 
-    // handles the sound makers
+    // handles the MediaPlayers
     private final Handler timerHandler = new Handler();
     private final Runnable timerRunnable = new Runnable() {
         @Override
@@ -70,7 +70,7 @@ public class GameplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameplay);
 
-        // get the TexView
+        // get the TextView
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
 
         // get team scores
@@ -101,7 +101,7 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    // start/quicken the timer or start the buzzer
+    // start or quicken the timer, or start the buzzer
     private void play() {
         int duration;
         if (timerCount < 4) {
@@ -183,7 +183,6 @@ public class GameplayActivity extends AppCompatActivity {
                 // set random timer durations on first touch
                 if (!isFirstTap) {
                     isFirstTap = true;
-
                     Random r = new Random();
                     durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
                     durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;

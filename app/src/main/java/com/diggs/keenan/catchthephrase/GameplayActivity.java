@@ -89,7 +89,7 @@ public class GameplayActivity extends AppCompatActivity {
 
         BufferedReader reader;
         try{
-            final InputStream file = getAssets().open("Words.txt");
+            final InputStream file = getAssets().open("words.txt");
             reader = new BufferedReader(new InputStreamReader(file));
             String line = reader.readLine();
             while(line != null){

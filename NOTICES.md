@@ -28,6 +28,5 @@ This project retrieved a 200-entry list published by <a href="http://www.prnewsw
 Icons Complete Ranked List&quot;</a>. This publication is a textual list of the icons mentioned in &quot;200 Greatest&quot;, a television program produced
 by the network <a href="http://www.vh1.com/">VH1</a>.
 
-This project uses a slightly shortened version of the English idiom list <a href="Definition of the Meaning of…The most Common 100 Idioms and Phrases in English">
-&quot;Definition of the Meaning of…The most Common 100 Idioms and Phrases in English&quot;</a>, compiled and published by
-<a href="http://dinolingo.com/blog/author/din0dmn/">Dina Lingo</a>.
+<a href="Definition of the Meaning of…The most Common 100 Idioms and Phrases in English">&quot;Definition of the Meaning of…The most Common 100 Idioms and
+Phrases in English&quot;</a>, compiled and published by <a href="http://dinolingo.com/blog/author/din0dmn/">Dina Lingo</a>.

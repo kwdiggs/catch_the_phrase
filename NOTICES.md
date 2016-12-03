@@ -1,4 +1,4 @@
-<h3>This work uses audio clips liscened under Creative Commons:</h3>
+<h2>This work uses audio clips liscened under Creative Commons:</h2>
 ===========================================================
 <br>
 <a href="https://www.freesound.org/s/197432/">&quot;Victory Scream&quot; by <a href="http://www.freesound.org/people/TeamMasaka/">Team Masaka</a>
@@ -13,7 +13,7 @@ under <a href="https://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0<
 under <a href="http://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0</a>
 <br><br>
 
-<h3>This work also uses a wordlist compiled from multiple sources:</h3>
+<h2>This work also uses a wordlist compiled from multiple sources:</h2>
 ==============================================================
 This project uses a shortened version of
 <a href="https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-usa-no-swears-long.txt">

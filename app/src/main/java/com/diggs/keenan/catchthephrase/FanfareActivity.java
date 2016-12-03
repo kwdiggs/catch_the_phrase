@@ -1,4 +1,4 @@
-package com.diggs.keenan.catchphraseadfree;
+package com.diggs.keenan.catchthephrase;
 
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;

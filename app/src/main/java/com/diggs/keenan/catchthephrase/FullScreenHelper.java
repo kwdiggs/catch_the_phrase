@@ -1,4 +1,4 @@
-package com.diggs.keenan.catchphraseadfree;
+package com.diggs.keenan.catchthephrase;
 
 import android.app.Activity;
 import android.view.View;

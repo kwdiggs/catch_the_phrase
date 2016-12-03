@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.diggs.keenan.catchphraseadfree">
+    package="com.diggs.keenan.catchthephrase">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -13,21 +13,21 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".GameplayActivity"
+            android:name="com.diggs.keenan.catchthephrase.GameplayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.diggs.keenan.catchthephrase.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ScoreboardActivity" />
-        <activity android:name=".InstructionActivity" />
-        <activity android:name=".FanfareActivity" />
+        <activity android:name="com.diggs.keenan.catchthephrase.ScoreboardActivity" />
+        <activity android:name="com.diggs.keenan.catchthephrase.InstructionActivity" />
+        <activity android:name="com.diggs.keenan.catchthephrase.FanfareActivity" />
     </application>
 
 </manifest>

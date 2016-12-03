@@ -39,4 +39,5 @@
         android:text="@string/team_two"
         android:textSize="20sp"
         android:textColor="@drawable/button_text_color" />
+
 </LinearLayout>

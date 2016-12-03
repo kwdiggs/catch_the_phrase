@@ -36,7 +36,7 @@
     </string>
     <string name="rules_heading">Rules</string>
     <string name="rules_subheading_one">
-        When describing a clue to their team, a player must NOT:</string>
+        When describing a clue, a player must NOT:</string>
     <string name="rules_body_one">
         \t&#8226; \u00A0Say what letter it starts with.\n
         \t&#8226; \u00A0Say what words it rhymes with.\n
@@ -44,7 +44,7 @@
         \t&#8226; \u00A0Say a word in the clue (e.g. \"holy\" in \"holy cow!\").
     </string>
     <string name="rules_subheading_two">
-        When describing a clue to their team, a player MAY:</string>
+        When describing a clue, a player MAY:</string>
     <string name="rules_body_two">
         \t&#8226; \u00A0Use body language and physical gestures.\n
         \t&#8226; \u00A0Use synonyms, so long as they don\'t rhyme.\n

@@ -10,7 +10,7 @@ public class FanfareActivity extends AppCompatActivity {
     // victory message "Team X Wins!"
     private TextView gameResultView;
 
-    // will play crowd cheering sound
+    // MediaPlayer to play crowd cheering (fanfare) sound
     private MediaPlayer fanfare;
 
     @Override
@@ -42,11 +42,10 @@ public class FanfareActivity extends AppCompatActivity {
         });
     }
 
+    // release media player
     @Override
     protected void onPause() {
         super.onPause();
-
-        // release media player
         if (fanfare != null) {
             fanfare.release();
             fanfare = null;

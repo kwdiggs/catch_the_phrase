@@ -23,6 +23,5 @@ to score 7 points wins.
 </ul>
 
 <h2>Screenshots</h2>
-
-
-
+<img src="menu.png" height="525px" width="300px" />
+<img src="clue.png" height="525px" width="300px" />

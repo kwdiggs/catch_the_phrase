@@ -1,4 +1,4 @@
-This work uses audio clips liscened under Creative Commons:
+<h3>This work uses audio clips liscened under Creative Commons:</h3>
 ===========================================================
 <br>
 <a href="https://www.freesound.org/s/197432/">"Victory Scream" by <a href="http://www.freesound.org/people/TeamMasaka/">Team Masaka</a> under 
@@ -13,17 +13,18 @@ under <a href="https://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0<
 under <a href="http://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0</a>
 <br><br>
 
-This work also uses a wordlist compiled from multiple sources:
+<h3>This work also uses a wordlist compiled from multiple sources:</h3>
 ==============================================================
-<a "https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-usa-no-swears-long.txt">
-"google-10000-english-usa-no-swears.txt"</a> is an approiximately 2000 word list compiled by <a href"https://github.com/worldlywisdom">
+This project uses a shortened version of
+<a href="https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-usa-no-swears-long.txt">
+"google-10000-english-usa-no-swears.txt"</a> is an approiximate 2000 word list compiled by <a href"https://github.com/worldlywisdom">
 Josh Kaufman</a>, who, in turn derived the list from <a href="http://norvig.com/index.html">Peter Norvig's</a> compilation of 
-<a href="http://norvig.com/ngrams/count_1w.txt">1/3 million most frequent English words</a>, from Google's
+<a href="http://norvig.com/ngrams/count_1w.txt">1/3 million most frequent English words</a>, a product of Google's
 <a href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html">Trillion Word Corpus</a>.
 <br><br>
 
-"200 Greatest" is a television program produced by the network <a href="http://www.vh1.com/>"VH1</a>. The program listed
-200 pop culture icons. A textual version of this list has since been published by many outlets on the web. This project retrieved the list from
+"200 Greatest" is a television program produced by the network <a href="http://www.vh1.com/">VH1</a>. The program listed
+200 pop culture icons when it aired, and a textual version of this list has since been published by many outlets on the web. This project retrieved the list from
 <a href="http://www.prnewswire.com/">PR Newswire</a> in their article entitled
 <a href="http://www.prnewswire.com/news-releases/the-200-greatest-pop-culture-icons-complete-ranked-list-70807437.html">
 "The 200 Greatest Pop Culture Icons Complete Ranked List"</a>.

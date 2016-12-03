@@ -17,7 +17,7 @@ under <a href="http://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0</
 
 This project uses a shortened version of
 <a href="https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-usa-no-swears-long.txt">
-"google-10000-english-usa-no-swears.txt"</a>, which is an approiximately 2000 words&#45;long list compiled by <a href"https://github.com/worldlywisdom">
+"google-10000-english-usa-no-swears.txt"</a>, which is an approiximately 2000 word list compiled by <a href"https://github.com/worldlywisdom">
 Josh Kaufman</a>. Kaufman, in turn derived the list from <a href="http://norvig.com/index.html">Peter Norvig's</a> compilation of 
 <a href="http://norvig.com/ngrams/count_1w.txt">1/3 million most frequent English words</a>, a product of Google's
 <a href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html">Trillion Word Corpus</a>.

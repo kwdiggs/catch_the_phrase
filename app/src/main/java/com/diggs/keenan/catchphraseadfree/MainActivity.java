@@ -29,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // launch GamePlay activity as a full game
+    // launch GameplayActivity as a full game
     public void startNewGame(View view) {
         Intent intent = new Intent(this, GameplayActivity.class);
         startActivityForResult(intent, START_REQUEST);
     }
 
-    // determine winner of full game and launch FanfareAcivity
+    // determine winner of full game and launch FanfareActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

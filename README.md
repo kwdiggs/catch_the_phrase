@@ -8,18 +8,18 @@ to the next clue, the screen may be tapped or swiped. When the timer runs out, t
 to score 7 points wins.
 
 <h2>Rules</h2>
-<ul>
 <b>When describing a clue, a player must NOT:</b>
+<ul>
 <li>Say what letter it starts with</li>
 <li>Say what words it rhymes with</li>
 <li>Say how many syllables it has</li>
 <li>Say a word in the clue (e.g. "holy" in "holy cow!")</li>
 </ul>
      
-<ul>   
 <b>When describing a clue, a player MAY:</b>
+<ul>   
 <li>Use body language and physical gestures</li>
-<li>Use synonyms, so long as they don\'t rhyme</li>
+<li>Use synonyms, so long as they don't rhyme with the clue</li>
 </ul>
 
 <h2>Screenshots</h2>

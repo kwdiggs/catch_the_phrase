@@ -4,10 +4,9 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background_color">#0099CC</color>
-    <color name="menu_background">#555555</color>
     <color name="card_color">#006699</color>
     <color name="black_overlay">#66000000</color>
     <color name="white">#FFF</color>
-    <color name="scoreboard_head">#393939</color>
+    <color name="scoreboard_head">#B26300</color>
     <color name="scoreboard_text">#DFDFDF</color>
 </resources>

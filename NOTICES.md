@@ -13,7 +13,7 @@ under <a href="http://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0</
 <br><br>
 
 
-<h2>This work also uses a wordlist compiled from multiple sources:</h2>
+<h2>This work uses a wordlist compiled from multiple sources:</h2>
 
 This project uses a shortened version of
 <a href="https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-usa-no-swears-long.txt">

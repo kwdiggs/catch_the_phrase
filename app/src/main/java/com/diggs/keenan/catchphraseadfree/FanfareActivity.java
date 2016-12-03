@@ -1,6 +1,10 @@
 package com.diggs.keenan.catchphraseadfree;
 
+import android.app.Service;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Handler;
+import android.os.IBinder;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +30,7 @@ public class FanfareActivity extends AppCompatActivity {
             gameResultView.setText(R.string.team_two_wins);
         }
 
-        // play fanfare sound effect
+        // play fanfare sound
         fanfare = MediaPlayer.create(this, R.raw.victory);
         if (fanfare != null) {
             fanfare.start();

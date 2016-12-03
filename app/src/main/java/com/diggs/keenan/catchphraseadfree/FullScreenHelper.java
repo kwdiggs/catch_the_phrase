@@ -3,9 +3,6 @@ package com.diggs.keenan.catchphraseadfree;
 import android.app.Activity;
 import android.view.View;
 
-/**
- * Created by keenan on 12/1/16.
- */
 public final class FullScreenHelper {
     // define visibility flags
     public static final int FLAGS = View.SYSTEM_UI_FLAG_LAYOUT_STABLE

@@ -1,19 +1,16 @@
 package com.diggs.keenan.catchphraseadfree;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class ScoreboardActivity extends AppCompatActivity {
     // determine if user is playing a practice round
     private boolean isPracticeRound;
 
-    // scoring button
+    // press to give a point
     private Button team1;
     private Button team2;
 
@@ -21,8 +18,8 @@ public class ScoreboardActivity extends AppCompatActivity {
     private int teamOneScore;
     private int teamTwoScore;
 
-    // score goal
-    private final int GOAL = 2;
+    // number of points needed to win
+    private final int GOAL = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +35,6 @@ public class ScoreboardActivity extends AppCompatActivity {
         if (!isPracticeRound) {
             teamOneScore = intent.getIntExtra("team_one_score", 0);
             teamTwoScore = intent.getIntExtra("team_two_score", 0);
-
             setButtonListener(team1);
             setButtonListener(team2);
         } else {
@@ -47,7 +43,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         }
     }
 
-    // send control flow back to main menu after button touch
+    // send control flow back to main menu after point is given
     private void setPracticeButtonListener(final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +54,8 @@ public class ScoreboardActivity extends AppCompatActivity {
         });
     }
 
-    // if there is no victor, send control flow back to GamePlay for the next round
-    // otherwise, send flow to victory fanfare
+    // if there is no victor, send control flow back to Gameplay for the next round
+    // otherwise, send to Gameplay with result code RESULT_OK to Gameplay.finish()
     private void setButtonListener(final Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +65,6 @@ public class ScoreboardActivity extends AppCompatActivity {
                     intent.putExtra("winner", "team_one");
                     setResult(RESULT_FIRST_USER, intent);
                 } else if (button.getId() == R.id.team_one) {
-                    Log.d("hello", "my love");
                     intent.putExtra("team_one_score", ++teamOneScore);
                     intent.putExtra("team_two_score", teamTwoScore);
                     setResult(RESULT_OK, intent);

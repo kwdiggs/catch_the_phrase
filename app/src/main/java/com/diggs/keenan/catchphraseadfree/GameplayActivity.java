@@ -8,8 +8,6 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +18,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
-
 
 public class GameplayActivity extends AppCompatActivity {
     // holds the words
@@ -46,8 +43,8 @@ public class GameplayActivity extends AppCompatActivity {
     private final int BUZZER = 3;
 
     // handles the sound makers
-    final Handler timerHandler = new Handler();
-    final Runnable timerRunnable = new Runnable() {
+    private final Handler timerHandler = new Handler();
+    private final Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
             play();
@@ -73,6 +70,7 @@ public class GameplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameplay);
 
+        // get the TexView
         mContentView = (TextView)findViewById(R.id.fullscreen_content);
 
         // get team scores
@@ -103,7 +101,7 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    // start a timer or the buzzer in the appropriate sequence
+    // start/quicken the timer or start the buzzer
     private void play() {
         int duration;
         if (timerCount < 4) {
@@ -127,11 +125,9 @@ public class GameplayActivity extends AppCompatActivity {
             releaseMediaPlayer(buzzer);
             Intent intent = new Intent(this, ScoreboardActivity.class);
             if (isPracticeRound) {
-                Log.d("hello", "practice round");
                 intent.putExtra("practice_round", true);
                 startActivityForResult(intent, PRACTICE_ROUND);
             } else {
-                Log.d("hello", "normal round");
                 intent.putExtra("team_one_score", teamOneScore);
                 intent.putExtra("team_two_score", teamTwoScore);
                 startActivityForResult(intent, NORMAL_ROUND);
@@ -144,7 +140,7 @@ public class GameplayActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // vary behavior by results
+        // vary behavior by result
         if (requestCode == PRACTICE_ROUND && resultCode == RESULT_OK) {
             Toast.makeText(this, R.string.practice_over, Toast.LENGTH_SHORT).show();
             finish();
@@ -160,7 +156,6 @@ public class GameplayActivity extends AppCompatActivity {
             setResult(RESULT_OK, intent);
             finish();
         } else {
-            Log.d("hello", "QUIT WITH ERROR");
             finish();
         }
     }
@@ -171,7 +166,7 @@ public class GameplayActivity extends AppCompatActivity {
         return wordList.get(currentWordIndex++);
     }
 
-    // the number of the word in the list
+    // get the word number
     private int getCurrentIndex() {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         int currentIndex = preferences.getInt("CurrentIndex", 0);
@@ -190,21 +185,15 @@ public class GameplayActivity extends AppCompatActivity {
                     isFirstTap = true;
 
                     Random r = new Random();
-//                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
-//                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
-//                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
+                    durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
+                    durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
+                    durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
                     durations[BUZZER] = 4500;
-
-                    durations[SLOW] = 2000;
-                    durations[MEDIUM] = 2000;
-                    durations[FAST] = 2000;
-
                     play();
                 }
             }
         });
     }
-
 
     // create timers and buzzer
     private void createMediaPlayers() {
@@ -217,7 +206,7 @@ public class GameplayActivity extends AppCompatActivity {
         buzzer = MediaPlayer.create(this, R.raw.timeup);
     }
 
-    // helper method: abstract away null check for start
+    // abstract away null check and MediaPlayer.start()
     private void startMediaPlayer(MediaPlayer player) {
         if (player != null) {
             player.start();
@@ -227,7 +216,7 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-    // helper method: abstract null check and call to release
+    // abstract away null check and MediaPlayer.release()
     private void releaseMediaPlayer(MediaPlayer player) {
         if (player != null) {
             player.release();
@@ -235,15 +224,16 @@ public class GameplayActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onPause() {
         super.onPause();
 
+        // record the current word index
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("CurrentIndex", currentWordIndex).apply();
 
+        // release resources
         timerHandler.removeCallbacks(timerRunnable);
         releaseMediaPlayer(slowTimer);
         releaseMediaPlayer(medTimer);

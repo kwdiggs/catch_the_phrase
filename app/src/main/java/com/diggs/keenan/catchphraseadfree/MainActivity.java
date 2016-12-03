@@ -3,11 +3,11 @@ package com.diggs.keenan.catchphraseadfree;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    private final int START_REQUEST = 1; // request code
+    // request code for new game
+    private final int START_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,22 +16,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    // launch GameplayActivity as a practice
     public void startPracticeRound(View view) {
         Intent intent = new Intent(this, GameplayActivity.class);
         intent.putExtra("practice_round", true);
         startActivity(intent);
     }
 
+    // launch InstructionActivity
     public void showInstructions(View view) {
         Intent intent = new Intent(this, InstructionActivity.class);
         startActivity(intent);
     }
 
+    // launch GamePlay activity as a full game
     public void startNewGame(View view) {
         Intent intent = new Intent(this, GameplayActivity.class);
         startActivityForResult(intent, START_REQUEST);
     }
 
+    // determine winner of full game and launch FanfareAcivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

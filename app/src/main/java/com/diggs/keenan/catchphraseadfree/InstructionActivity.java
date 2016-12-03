@@ -2,7 +2,6 @@ package com.diggs.keenan.catchphraseadfree;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 public class InstructionActivity extends AppCompatActivity {
 

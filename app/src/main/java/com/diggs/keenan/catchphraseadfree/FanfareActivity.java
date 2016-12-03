@@ -1,19 +1,16 @@
 package com.diggs.keenan.catchphraseadfree;
 
-import android.app.Service;
-import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 public class FanfareActivity extends AppCompatActivity {
+    // victory message "Team X Wins!"
     private TextView gameResultView;
+
+    // will play crowd cheering sound
     private MediaPlayer fanfare;
 
     @Override
@@ -21,7 +18,7 @@ public class FanfareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fanfare);
 
-        // display winning team on screen
+        // display message for winning team
         gameResultView = (TextView)findViewById(R.id.game_result);
         String resultString = getIntent().getStringExtra("winner");
         if (resultString.equals("team_one")) {

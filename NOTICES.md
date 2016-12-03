@@ -27,3 +27,7 @@ This project retrieved a 200-entry list published by <a href="http://www.prnewsw
 <a href="http://www.prnewswire.com/news-releases/the-200-greatest-pop-culture-icons-complete-ranked-list-70807437.html">&quot;The 200 Greatest Pop Culture
 Icons Complete Ranked List&quot;</a>. This publication is a textual list of the icons mentioned in &quot;200 Greatest&quot;, a television program produced
 by the network <a href="http://www.vh1.com/">VH1</a>.
+
+This project uses a slightly shortened version of the English idiom list <a href="Definition of the Meaning of…The most Common 100 Idioms and Phrases in English">
+&quot;Definition of the Meaning of…The most Common 100 Idioms and Phrases in English&quot;</a>, compiled and published by
+<a href="http://dinolingo.com/blog/author/din0dmn/">Dina Lingo</a>.

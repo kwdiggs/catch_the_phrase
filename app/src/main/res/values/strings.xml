@@ -31,11 +31,8 @@
         describe the clue until their teammates successfully guess it. Then, the device will be
         passed to a player on the opposite team and this process will repeat with a new clue. To
         advance to the next clue, the screen may be tapped or swiped. When the timer runs out, the
-        \"timeup\" sound will play, and the team not holding the device will be awarded a point.
-    </string>
-    <string name="objective_heading">Objective</string>
-    <string name="objective">
-        The first team to score 7 points wins.
+        \"timeup\" sound will play, and the team not holding the device will be awarded a point. The
+        first team to score 7 points wins.
     </string>
     <string name="rules_heading">Rules</string>
     <string name="rules_subheading_one">

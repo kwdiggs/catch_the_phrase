@@ -187,6 +187,9 @@ public class GameplayActivity extends AppCompatActivity {
                     durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
                     durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
                     durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
+//                    durations[SLOW] = 1000;
+//                    durations[MEDIUM] = 1000;
+//                    durations[FAST] = 1000;
                     durations[BUZZER] = 4500;
                     play();
                 }

@@ -27,4 +27,4 @@ Josh Kaufman</a>. Kaufman, in turn derived the list from <a href="http://norvig.
 <a href="Definition of the Meaning of…The most Common 100 Idioms and Phrases in English">&quot;Definition of the Meaning of…The most Common 100 Idioms and
 Phrases in English&quot;</a>, compiled and published by <a href="http://dinolingo.com/blog/author/din0dmn/">Dina Lingo</a>.
 
-The rest of the word bank was assembled by the source author.
+The rest of the word bank was written, assembled, and curated by the source author.

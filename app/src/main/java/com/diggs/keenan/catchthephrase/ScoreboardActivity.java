@@ -7,9 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class ScoreboardActivity extends AppCompatActivity {
-    // determine if user is playing a practice round
-    private boolean isPracticeRound;
-
     // press to give a point
     private Button team1;
     private Button team2;
@@ -19,7 +16,7 @@ public class ScoreboardActivity extends AppCompatActivity {
     private int teamTwoScore;
 
     // number of points needed to win
-    private final int GOAL = 7;
+    private final int GOAL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,31 +24,14 @@ public class ScoreboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scoreboard);
 
         Intent intent = getIntent();
-        isPracticeRound = intent.getBooleanExtra("practice_round", false);
 
         team1 = (Button)findViewById(R.id.team_one);
         team2 = (Button)findViewById(R.id.team_two);
 
-        if (!isPracticeRound) {
-            teamOneScore = intent.getIntExtra("team_one_score", 0);
-            teamTwoScore = intent.getIntExtra("team_two_score", 0);
-            setButtonListener(team1);
-            setButtonListener(team2);
-        } else {
-            setPracticeButtonListener(team1);
-            setPracticeButtonListener(team2);
-        }
-    }
-
-    // send control flow back to main menu after point is given
-    private void setPracticeButtonListener(final Button button) {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(RESULT_OK);
-                finish();
-            }
-        });
+        teamOneScore = intent.getIntExtra("team_one_score", 0);
+        teamTwoScore = intent.getIntExtra("team_two_score", 0);
+        setButtonListener(team1);
+        setButtonListener(team2);
     }
 
     // if there is no victor, send control flow back to Gameplay for the next round

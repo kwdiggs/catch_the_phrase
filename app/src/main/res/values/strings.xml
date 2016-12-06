@@ -4,20 +4,24 @@
     <!-- main menu labels -->
     <string name="play">New Game</string>
     <string name="how_to_play">How To Play</string>
-    <string name="practice_round">Practice Round</string>
+    <string name="settings">Settings</string>
+
+    <!-- SettingsActivity -->
+    <string name="categories">Categories</string>
+    <string name="people_characters">Real People &amp; Fictional Characters</string>
+    <string name="animals_insects">Animals &amp; Insects</string>
+    <string name="household">Household Items</string>
+    <string name="food_drink">Food &amp; Drink</string>
+    <string name="words_phrases">Common words &amp; phrases</string>
 
     <!-- GameplayActivity  -->
     <string name="default_clue">Tap To\nStart</string>
-    <string name="practice_clue">Tap To\nPractice</string>
     <string name="continue_clue">Tap To\nContinue</string>
 
     <!-- ScoreboardActivity -->
     <string name="award_point">Award Point</string>
     <string name="team_one">Team 1</string>
     <string name="team_two">Team 2</string>
-
-    <!-- Conclusion of a practice round -->
-    <string name="practice_over">End of Practice Round</string>
 
     <!-- Conclusion of a full game -->
     <string name="team_one_wins">Team 1\nWins!</string>

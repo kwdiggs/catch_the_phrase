@@ -38,9 +38,9 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@drawable/button_menu"
-        android:text="@string/practice_round"
+        android:text="@string/settings"
         android:textSize="20sp"
         android:textColor="@drawable/button_text_color"
-        android:onClick="startPracticeRound" />
+        android:onClick="openSettings" />
 
 </LinearLayout>

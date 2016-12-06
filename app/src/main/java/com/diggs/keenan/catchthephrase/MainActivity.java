@@ -12,14 +12,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FullScreenHelper.goFullscreen(this);
         setContentView(R.layout.activity_main);
     }
 
-    // launch GameplayActivity as a practice
-    public void startPracticeRound(View view) {
-        Intent intent = new Intent(this, GameplayActivity.class);
-        intent.putExtra("practice_round", true);
+    // launch SettingsActivity
+    public void openSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

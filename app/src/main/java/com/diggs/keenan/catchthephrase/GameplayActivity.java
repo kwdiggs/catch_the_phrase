@@ -27,9 +27,6 @@ public class GameplayActivity extends AppCompatActivity {
     // displays the words
     private TextView mContentView;
 
-    // determine if user selected a practice round or a full game
-    private boolean isPracticeRound;
-
     // plays the sounds
     private MediaPlayer slowTimer;
     private MediaPlayer medTimer;
@@ -54,16 +51,15 @@ public class GameplayActivity extends AppCompatActivity {
     private boolean isFirstTap = false;
     private int timerCount = 0;
 
-    // request codes
-    private final int PRACTICE_ROUND = 1;
-    private final int NORMAL_ROUND = 2;
-
     // team scores
     private int teamOneScore;
     private int teamTwoScore;
 
     // how long (ms) to vibrate device when a round concludes
     private final int VIBRATE_DURATION = 1200;
+
+    // request code
+    private final int REQUEST_SCOREBOARD = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +74,7 @@ public class GameplayActivity extends AppCompatActivity {
         teamOneScore = intent.getIntExtra("team_one_score", 0);
         teamTwoScore = intent.getIntExtra("team_two_score", 0);
 
-        // assign practiceRound value and set listener for TextView
-        isPracticeRound = intent.getBooleanExtra("practice_round", false);
+        // set listener for TextView
         setScreenListener();
 
         // put word list in ArrayList of Strings
@@ -124,14 +119,9 @@ public class GameplayActivity extends AppCompatActivity {
         } else {
             releaseMediaPlayer(buzzer);
             Intent intent = new Intent(this, ScoreboardActivity.class);
-            if (isPracticeRound) {
-                intent.putExtra("practice_round", true);
-                startActivityForResult(intent, PRACTICE_ROUND);
-            } else {
-                intent.putExtra("team_one_score", teamOneScore);
-                intent.putExtra("team_two_score", teamTwoScore);
-                startActivityForResult(intent, NORMAL_ROUND);
-            }
+            intent.putExtra("team_one_score", teamOneScore);
+            intent.putExtra("team_two_score", teamTwoScore);
+            startActivityForResult(intent, REQUEST_SCOREBOARD);
         }
     }
 
@@ -140,17 +130,14 @@ public class GameplayActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // vary behavior by result
-        if (requestCode == PRACTICE_ROUND && resultCode == RESULT_OK) {
-            Toast.makeText(this, R.string.practice_over, Toast.LENGTH_SHORT).show();
-            finish();
-        } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_OK) {
+        // vary behavior by resultCode
+        if (resultCode == RESULT_OK) {
             teamOneScore = data.getIntExtra("team_one_score", 0);
             teamTwoScore = data.getIntExtra("team_two_score", 0);
             String scores = "Team one score: " + teamOneScore + "\n";
             scores += "Team two score: " + teamTwoScore;
             Toast.makeText(this, scores, Toast.LENGTH_LONG).show();
-        } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_FIRST_USER) {
+        } else if (resultCode == RESULT_FIRST_USER) {
             Intent intent = new Intent();
             intent.putExtra("winner", data.getStringExtra("winner"));
             setResult(RESULT_OK, intent);
@@ -187,9 +174,9 @@ public class GameplayActivity extends AppCompatActivity {
                     durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
                     durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
                     durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
-//                    durations[SLOW] = 1000;
-//                    durations[MEDIUM] = 1000;
-//                    durations[FAST] = 1000;
+                    durations[SLOW] = 1000;
+                    durations[MEDIUM] = 1000;
+                    durations[FAST] = 1000;
                     durations[BUZZER] = 4500;
                     play();
                 }
@@ -251,9 +238,7 @@ public class GameplayActivity extends AppCompatActivity {
 
         // enable touches and display default clue
         mContentView.setEnabled(true);
-        if (isPracticeRound) {
-            mContentView.setText(R.string.practice_clue);
-        } else if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
+        if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
             mContentView.setText(R.string.default_clue);
         } else {
             mContentView.setText(R.string.continue_clue);

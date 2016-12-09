@@ -30,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void onCheckboxClicked(View view) {
-        preferences = getPreferences(MODE_PRIVATE);
+//        preferences = getSharedPreferences("categories", MODE_PRIVATE);
         editor = preferences.edit();
 
         // is the box checked
@@ -84,7 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void setBoxPreferences() {
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = getSharedPreferences("categories", MODE_PRIVATE);
 
         people.setChecked(preferences.getBoolean("sublist_people", false));
         food.setChecked(preferences.getBoolean("sublist_food", false));

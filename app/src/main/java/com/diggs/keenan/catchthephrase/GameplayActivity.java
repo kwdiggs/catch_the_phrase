@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,9 +18,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Random;
 
 public class GameplayActivity extends AppCompatActivity {
+    SharedPreferences preferences;
+
     // holds the words
     private ArrayList<String> wordList;
     private int currentWordIndex;
@@ -82,18 +88,49 @@ public class GameplayActivity extends AppCompatActivity {
         wordList = new ArrayList<>();
         currentWordIndex = getCurrentIndex();
 
+        // sublist preferences
+        preferences = getSharedPreferences("categories", MODE_PRIVATE);
+
+        Map<String, ?> keys = preferences.getAll();
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+            Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
+        }
+
         BufferedReader reader;
         try{
-            final InputStream file = getAssets().open("word_list.txt");
+            final InputStream file = getAssets().open("test.txt");
             reader = new BufferedReader(new InputStreamReader(file));
             String line = reader.readLine();
-            while(line != null){
-                wordList.add(line);
-                line = reader.readLine();
+            while(line != null) {
+                if (!line.equals("*")) {
+                    wordList.add(line);
+                    line = reader.readLine();
+
+                } else {
+                    Log.d("s", "WE GOT ONE for this asterisk " + line);
+                    String sublistLabel = reader.readLine();
+                    Log.d("s", "SO, WE will use this sublistLabel " + sublistLabel);
+                    Log.d("s", "WHICH HAST THIS TRUTH VALUE: " + preferences.getBoolean(sublistLabel, true) + "");
+
+                    if (sublistLabel != null && preferences.getBoolean(sublistLabel, true)) {
+                        Log.d("s", "IF WE SET OUR PREFS TO USE IT, THEN USE IT!");
+                        Log.d("s", "sublist label length: " + sublistLabel.length() + " " + sublistLabel);
+                        line = reader.readLine();
+
+                    } else {
+                        Log.d("s", "IF WE SET PREFS NOT TO USE IT, DONT USE IT");
+                        while (line != null && !line.equals("*")) {
+                            line = reader.readLine();
+                        }
+
+                    }
+                }
             }
         } catch(IOException ioe){
             ioe.printStackTrace();
         }
+
+        Collections.shuffle(wordList);
     }
 
     // start or quicken the timer, or start the buzzer
@@ -218,9 +255,9 @@ public class GameplayActivity extends AppCompatActivity {
         super.onPause();
 
         // record the current word index
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("CurrentIndex", currentWordIndex).apply();
+//        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+//        SharedPreferences.Editor editor = preferences.edit();
+//        editor.putInt("CurrentIndex", currentWordIndex).apply();
 
         // release resources
         timerHandler.removeCallbacks(timerRunnable);
@@ -250,7 +287,7 @@ public class GameplayActivity extends AppCompatActivity {
         createMediaPlayers();
 
         // remember position in word list
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        currentWordIndex = preferences.getInt("CurrentIndex", 0);
+//        preferences = getPreferences(MODE_PRIVATE);
+//        currentWordIndex = preferences.getInt("CurrentIndex", 0);
     }
 }

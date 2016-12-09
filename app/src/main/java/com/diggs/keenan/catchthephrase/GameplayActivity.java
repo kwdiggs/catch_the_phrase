@@ -8,22 +8,33 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
 public class GameplayActivity extends AppCompatActivity {
+    // text file names
+    private final String WORD_BANK = "word_bank.txt";
+    private final String GAMEPLAY_LIST = "list.txt";
+
+    // preferences
     SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     // holds the words
     private ArrayList<String> wordList;
@@ -90,57 +101,82 @@ public class GameplayActivity extends AppCompatActivity {
         // sublist preferences
         preferences = getSharedPreferences("categories", MODE_PRIVATE);
 
-//        Map<String, ?> keys = preferences.getAll();
-//        for (Map.Entry<String, ?> entry : keys.entrySet()) {
-//            Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
-//        }
-
-        if (preferences.getBoolean("update_categories", false)) {
-
+        // if user has not changed gameplay categories, continue using the current word list
+        // otherwise write the list anew
+        if (preferences.getBoolean("categories_updated", true)) {
+            createList();
+            editor = preferences.edit();
+            editor.putBoolean("categories_updated", false).apply();
         } else {
+            repopulateList();
+        }
+    }
 
-            BufferedReader reader;
-            try {
-                final InputStream file = getAssets().open("test.txt");
-                reader = new BufferedReader(new InputStreamReader(file));
-                String line = "";
+    private void repopulateList() {
 
-                // parse the word bank into sublists
-                while (line != null) {
-                    if (line.equals("*")) {
-                        String sublistLabel = reader.readLine();
-                        boolean userSet = preferences.getBoolean(sublistLabel, true);
+    }
 
-                        // if user set this sublist for use, add its words
-                        // otherwise skip this sublist entirely
-                        line = reader.readLine();
-                        if (userSet) {
-                            while (line != null && !line.equals("*")) {
-                                wordList.add(line);
-                                line = reader.readLine();
-                            }
-                        } else {
-                            while (line != null && !line.equals("*")) {
-                                line = reader.readLine();
-                            }
+    // create word file for gameplay from the word bank, based on set categories
+    private void createList() {
+        BufferedReader reader;
+        try {
+            final InputStream file = getAssets().open(WORD_BANK);
+            reader = new BufferedReader(new InputStreamReader(file));
+            String line = "";
+
+            // parse the word bank into sublists
+            while (line != null) {
+                if (line.equals("*")) {
+                    String sublistLabel = reader.readLine();
+                    boolean userSet = preferences.getBoolean(sublistLabel, true);
+
+                    // if user set this sublist (category) for use, add its words
+                    // otherwise skip this sublist entirely
+                    line = reader.readLine();
+                    if (userSet) {
+                        while (line != null && !line.equals("*")) { // add
+                            wordList.add(line);
+                            line = reader.readLine();
                         }
                     } else {
-                        line = reader.readLine();
+                        while (line != null && !line.equals("*")) { // skip
+                            line = reader.readLine();
+                        }
                     }
+                } else {
+                    line = reader.readLine();
                 }
-
-            // shuffle the list
-            Collections.shuffle(wordList);
-
-            // write list to file
-            File currentList = new File("current_list.txt");
-            currentList.createNewFile(); // if file already exists will do nothing
-            FileOutputStream oFile = new FileOutputStream(currentList, false);
-
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
             }
 
+            // shuffle the list and write to file
+            Collections.shuffle(wordList);
+            writeToList();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            onPause();
+            finish();
+        }
+    }
+
+    // write to text file
+    private void writeToList() {
+        try{
+            PrintWriter writer = new PrintWriter(GAMEPLAY_LIST, "UTF-8");
+            for(String word : wordList) {
+                writer.println(word);
+            }
+            writer.close();
+        } catch (FileNotFoundException ex) {
+            Log.d("s", "FILE NOT FOUND");
+            ex.printStackTrace();
+            onPause();
+            finish();
+        } catch (Exception e) {
+            Log.d("s", "THERE WAS A GENERAL ERROR");
+            e.printStackTrace();
+            onPause();
+            finish();
         }
     }
 
@@ -266,9 +302,9 @@ public class GameplayActivity extends AppCompatActivity {
         super.onPause();
 
         // record the current word index
-//        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.putInt("CurrentIndex", currentWordIndex).apply();
+        preferences = getPreferences(MODE_PRIVATE);
+        editor = preferences.edit();
+        editor.putInt("CurrentIndex", currentWordIndex).apply();
 
         // release resources
         timerHandler.removeCallbacks(timerRunnable);
@@ -298,7 +334,7 @@ public class GameplayActivity extends AppCompatActivity {
         createMediaPlayers();
 
         // remember position in word list
-//        preferences = getPreferences(MODE_PRIVATE);
-//        currentWordIndex = preferences.getInt("CurrentIndex", 0);
+        preferences = getPreferences(MODE_PRIVATE);
+        currentWordIndex = preferences.getInt("CurrentIndex", 0);
     }
 }

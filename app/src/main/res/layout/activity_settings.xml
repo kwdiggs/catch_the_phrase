@@ -14,14 +14,14 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.diggs.keenan.catchthephrase.SettingsActivity">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/categories"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"/>
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="@string/categories"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textStyle="bold"/>-->
 
         <CheckBox
             android:id="@+id/checkbox_people"

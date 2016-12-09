@@ -1,19 +1,18 @@
 <resources>
     <string name="app_name">Catch The Phrase</string>
-    <string name="settings_activity">Settings</string>
 
     <!-- main menu labels -->
     <string name="play">New Game</string>
     <string name="how_to_play">How To Play</string>
-    <string name="settings">Settings</string>
+    <string name="settings">Categories</string>
 
     <!-- SettingsActivity -->
     <string name="categories">Categories</string>
-    <string name="people_characters">Real People &amp; Fictional Characters</string>
-    <string name="animals_insects">Animals &amp; Insects</string>
+    <string name="people_characters">People &amp; Characters</string>
+    <string name="animals_insects">Animals</string>
     <string name="household">Household Items</string>
     <string name="food_drink">Food &amp; Drink</string>
-    <string name="words_phrases">Common words &amp; phrases</string>
+    <string name="words_phrases">Words &amp; phrases</string>
 
     <!-- GameplayActivity  -->
     <string name="default_clue">Tap To\nStart</string>

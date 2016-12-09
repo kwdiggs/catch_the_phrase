@@ -8,19 +8,18 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
 import java.util.Random;
 
 public class GameplayActivity extends AppCompatActivity {
@@ -31,7 +30,7 @@ public class GameplayActivity extends AppCompatActivity {
     private int currentWordIndex;
 
     // displays the words
-    private TextView mContentView;
+    private TextView wordView;
 
     // plays the sounds
     private MediaPlayer slowTimer;
@@ -73,7 +72,7 @@ public class GameplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gameplay);
 
         // get the TextView
-        mContentView = (TextView)findViewById(R.id.fullscreen_content);
+        wordView = (TextView)findViewById(R.id.fullscreen_content);
 
         // get team scores
         Intent intent = getIntent();
@@ -91,46 +90,58 @@ public class GameplayActivity extends AppCompatActivity {
         // sublist preferences
         preferences = getSharedPreferences("categories", MODE_PRIVATE);
 
-        Map<String, ?> keys = preferences.getAll();
-        for (Map.Entry<String, ?> entry : keys.entrySet()) {
-            Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
-        }
+//        Map<String, ?> keys = preferences.getAll();
+//        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+//            Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
+//        }
 
-        BufferedReader reader;
-        try{
-            final InputStream file = getAssets().open("test.txt");
-            reader = new BufferedReader(new InputStreamReader(file));
-            String line = reader.readLine();
-            while(line != null) {
-                if (!line.equals("*")) {
-                    wordList.add(line);
-                    line = reader.readLine();
+        if (preferences.getBoolean("update_categories", false)) {
 
-                } else {
-                    Log.d("s", "WE GOT ONE for this asterisk " + line);
-                    String sublistLabel = reader.readLine();
-                    Log.d("s", "SO, WE will use this sublistLabel " + sublistLabel);
-                    Log.d("s", "WHICH HAST THIS TRUTH VALUE: " + preferences.getBoolean(sublistLabel, true) + "");
+        } else {
 
-                    if (sublistLabel != null && preferences.getBoolean(sublistLabel, true)) {
-                        Log.d("s", "IF WE SET OUR PREFS TO USE IT, THEN USE IT!");
-                        Log.d("s", "sublist label length: " + sublistLabel.length() + " " + sublistLabel);
+            BufferedReader reader;
+            try {
+                final InputStream file = getAssets().open("test.txt");
+                reader = new BufferedReader(new InputStreamReader(file));
+                String line = "";
+
+                // parse the word bank into sublists
+                while (line != null) {
+                    if (line.equals("*")) {
+                        String sublistLabel = reader.readLine();
+                        boolean userSet = preferences.getBoolean(sublistLabel, true);
+
+                        // if user set this sublist for use, add its words
+                        // otherwise skip this sublist entirely
                         line = reader.readLine();
-
-                    } else {
-                        Log.d("s", "IF WE SET PREFS NOT TO USE IT, DONT USE IT");
-                        while (line != null && !line.equals("*")) {
-                            line = reader.readLine();
+                        if (userSet) {
+                            while (line != null && !line.equals("*")) {
+                                wordList.add(line);
+                                line = reader.readLine();
+                            }
+                        } else {
+                            while (line != null && !line.equals("*")) {
+                                line = reader.readLine();
+                            }
                         }
-
+                    } else {
+                        line = reader.readLine();
                     }
                 }
-            }
-        } catch(IOException ioe){
-            ioe.printStackTrace();
-        }
 
-        Collections.shuffle(wordList);
+            // shuffle the list
+            Collections.shuffle(wordList);
+
+            // write list to file
+            File currentList = new File("current_list.txt");
+            currentList.createNewFile(); // if file already exists will do nothing
+            FileOutputStream oFile = new FileOutputStream(currentList, false);
+
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+
+        }
     }
 
     // start or quicken the timer, or start the buzzer
@@ -199,10 +210,10 @@ public class GameplayActivity extends AppCompatActivity {
 
     // get new word when screen is tapped
     private void setScreenListener() {
-        mContentView.setOnClickListener(new View.OnClickListener() {
+        wordView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContentView.setText(getNextWord());
+                wordView.setText(getNextWord());
 
                 // set random timer durations on first touch
                 if (!isFirstTap) {
@@ -238,7 +249,7 @@ public class GameplayActivity extends AppCompatActivity {
             player.start();
         }
         if (player == buzzer) {
-            mContentView.setEnabled(false);
+            wordView.setEnabled(false);
         }
     }
 
@@ -274,11 +285,11 @@ public class GameplayActivity extends AppCompatActivity {
         FullScreenHelper.goFullscreen(this);
 
         // enable touches and display default clue
-        mContentView.setEnabled(true);
+        wordView.setEnabled(true);
         if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
-            mContentView.setText(R.string.default_clue);
+            wordView.setText(R.string.default_clue);
         } else {
-            mContentView.setText(R.string.continue_clue);
+            wordView.setText(R.string.continue_clue);
         }
 
         // reset play() variables

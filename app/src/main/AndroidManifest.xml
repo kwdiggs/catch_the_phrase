@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.diggs.keenan.catchthephrase">
 
-    <!-- Only used in GameplayActivity -->
+    <!-- Only utilized in GameplayActivity -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -25,11 +25,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScoreboardActivity" />
-        <activity android:name=".InstructionActivity" />
+        <activity
+            android:name=".InstructionActivity"
+            android:label="@string/how_to_play"/>
         <activity
             android:name=".FanfareActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings_activity" />
     </application>
 
 </manifest>

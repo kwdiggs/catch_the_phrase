@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,18 +18,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class GameplayActivity extends AppCompatActivity {
+    // file name
+    private final String WORD_BANK = "word_bank.txt";
+
+    // preferences
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+
     // holds the words
     private ArrayList<String> wordList;
     private int currentWordIndex;
 
     // displays the words
-    private TextView mContentView;
-
-    // determine if user selected a practice round or a full game
-    private boolean isPracticeRound;
+    private TextView wordView;
 
     // plays the sounds
     private MediaPlayer slowTimer;
@@ -54,10 +60,6 @@ public class GameplayActivity extends AppCompatActivity {
     private boolean isFirstTap = false;
     private int timerCount = 0;
 
-    // request codes
-    private final int PRACTICE_ROUND = 1;
-    private final int NORMAL_ROUND = 2;
-
     // team scores
     private int teamOneScore;
     private int teamTwoScore;
@@ -65,39 +67,74 @@ public class GameplayActivity extends AppCompatActivity {
     // how long (ms) to vibrate device when a round concludes
     private final int VIBRATE_DURATION = 1200;
 
+    // request code
+    private final int REQUEST_SCOREBOARD = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameplay);
 
         // get the TextView
-        mContentView = (TextView)findViewById(R.id.fullscreen_content);
+        wordView = (TextView)findViewById(R.id.fullscreen_content);
 
         // get team scores
         Intent intent = getIntent();
         teamOneScore = intent.getIntExtra("team_one_score", 0);
         teamTwoScore = intent.getIntExtra("team_two_score", 0);
 
-        // assign practiceRound value and set listener for TextView
-        isPracticeRound = intent.getBooleanExtra("practice_round", false);
+        // set listener for TextView
         setScreenListener();
 
-        // put word list in ArrayList of Strings
-        // do this once on creation
+        // put words in ArrayList of Strings
         wordList = new ArrayList<>();
         currentWordIndex = getCurrentIndex();
 
+        // parameterize preferences and word list
+        preferences = getSharedPreferences("categories", MODE_PRIVATE);
+        populateList();
+    }
+
+    // create word file for gameplay from the word bank, based on set categories
+    private void populateList() {
         BufferedReader reader;
-        try{
-            final InputStream file = getAssets().open("word_list.txt");
+        try {
+            final InputStream file = getAssets().open(WORD_BANK);
             reader = new BufferedReader(new InputStreamReader(file));
-            String line = reader.readLine();
-            while(line != null){
-                wordList.add(line);
-                line = reader.readLine();
+            String line = "";
+
+            // parse the word bank into sublists
+            while (line != null) {
+                if (line.equals("*")) {
+                    String sublistLabel = reader.readLine();
+                    boolean userSet = preferences.getBoolean(sublistLabel, true);
+
+                    // if user set this sublist (category) for use, add its words
+                    // otherwise skip this sublist entirely
+                    line = reader.readLine();
+                    if (userSet) {
+                        while (line != null && !line.equals("*")) { // add
+                            wordList.add(line);
+                            line = reader.readLine();
+                        }
+                    } else {
+                        while (line != null && !line.equals("*")) { // skip
+                            line = reader.readLine();
+                        }
+                    }
+                } else {
+                    line = reader.readLine();
+                }
             }
-        } catch(IOException ioe){
+
+            // shuffle the list
+            Collections.shuffle(wordList);
+            currentWordIndex = 0;
+
+        } catch (IOException ioe) {
             ioe.printStackTrace();
+            onPause();
+            finish();
         }
     }
 
@@ -124,14 +161,9 @@ public class GameplayActivity extends AppCompatActivity {
         } else {
             releaseMediaPlayer(buzzer);
             Intent intent = new Intent(this, ScoreboardActivity.class);
-            if (isPracticeRound) {
-                intent.putExtra("practice_round", true);
-                startActivityForResult(intent, PRACTICE_ROUND);
-            } else {
-                intent.putExtra("team_one_score", teamOneScore);
-                intent.putExtra("team_two_score", teamTwoScore);
-                startActivityForResult(intent, NORMAL_ROUND);
-            }
+            intent.putExtra("team_one_score", teamOneScore);
+            intent.putExtra("team_two_score", teamTwoScore);
+            startActivityForResult(intent, REQUEST_SCOREBOARD);
         }
     }
 
@@ -140,17 +172,14 @@ public class GameplayActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // vary behavior by result
-        if (requestCode == PRACTICE_ROUND && resultCode == RESULT_OK) {
-            Toast.makeText(this, R.string.practice_over, Toast.LENGTH_SHORT).show();
-            finish();
-        } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_OK) {
+        // vary behavior by resultCode
+        if (resultCode == RESULT_OK) {
             teamOneScore = data.getIntExtra("team_one_score", 0);
             teamTwoScore = data.getIntExtra("team_two_score", 0);
             String scores = "Team one score: " + teamOneScore + "\n";
             scores += "Team two score: " + teamTwoScore;
             Toast.makeText(this, scores, Toast.LENGTH_LONG).show();
-        } else if (requestCode == NORMAL_ROUND && resultCode == RESULT_FIRST_USER) {
+        } else if (resultCode == RESULT_FIRST_USER) {
             Intent intent = new Intent();
             intent.putExtra("winner", data.getStringExtra("winner"));
             setResult(RESULT_OK, intent);
@@ -175,10 +204,10 @@ public class GameplayActivity extends AppCompatActivity {
 
     // get new word when screen is tapped
     private void setScreenListener() {
-        mContentView.setOnClickListener(new View.OnClickListener() {
+        wordView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContentView.setText(getNextWord());
+                wordView.setText(getNextWord());
 
                 // set random timer durations on first touch
                 if (!isFirstTap) {
@@ -187,9 +216,9 @@ public class GameplayActivity extends AppCompatActivity {
                     durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
                     durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
                     durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
-//                    durations[SLOW] = 1000;
-//                    durations[MEDIUM] = 1000;
-//                    durations[FAST] = 1000;
+                    durations[SLOW] = 1000;
+                    durations[MEDIUM] = 1000;
+                    durations[FAST] = 1000;
                     durations[BUZZER] = 4500;
                     play();
                 }
@@ -214,7 +243,7 @@ public class GameplayActivity extends AppCompatActivity {
             player.start();
         }
         if (player == buzzer) {
-            mContentView.setEnabled(false);
+            wordView.setEnabled(false);
         }
     }
 
@@ -231,8 +260,8 @@ public class GameplayActivity extends AppCompatActivity {
         super.onPause();
 
         // record the current word index
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+        preferences = getPreferences(MODE_PRIVATE);
+        editor = preferences.edit();
         editor.putInt("CurrentIndex", currentWordIndex).apply();
 
         // release resources
@@ -243,20 +272,17 @@ public class GameplayActivity extends AppCompatActivity {
         releaseMediaPlayer(buzzer);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
         FullScreenHelper.goFullscreen(this);
 
         // enable touches and display default clue
-        mContentView.setEnabled(true);
-        if (isPracticeRound) {
-            mContentView.setText(R.string.practice_clue);
-        } else if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
-            mContentView.setText(R.string.default_clue);
+        wordView.setEnabled(true);
+        if (teamOneScore == teamTwoScore && teamTwoScore == 0) {
+            wordView.setText(R.string.default_clue);
         } else {
-            mContentView.setText(R.string.continue_clue);
+            wordView.setText(R.string.continue_clue);
         }
 
         // reset play() variables
@@ -265,7 +291,7 @@ public class GameplayActivity extends AppCompatActivity {
         createMediaPlayers();
 
         // remember position in word list
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        preferences = getPreferences(MODE_PRIVATE);
         currentWordIndex = preferences.getInt("CurrentIndex", 0);
     }
 }

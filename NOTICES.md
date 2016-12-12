@@ -1,11 +1,11 @@
 # Attributions
-<h2>This work uses audio clips liscened under Creative Commons:</h2>
+<h2>This work uses audio clips licensed under Creative Commons:</h2>
 
-<a href="https://www.freesound.org/s/197432/">&quot;Victory Scream&quot; by <a href="http://www.freesound.org/people/TeamMasaka/">Team Masaka</a>
+<a href="https://www.freesound.org/s/197432/">&quot;Victory Scream&quot;</a> by <a href="http://www.freesound.org/people/TeamMasaka/">Team Masaka</a>
 under <a href="https://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0</a> / Cropped from original
 <br>
 
-<a href="http://www.freesound.org/people/copyc4t/sounds/146434/">&quot;DunDunDunnn&quot; by <a href="http://www.olografix.org/groucho/mymusic/">copyc4t</a>
+<a href="http://www.freesound.org/people/copyc4t/sounds/146434/">&quot;DunDunDunnn&quot;</a> by <a href="http://www.olografix.org/groucho/mymusic/">copyc4t</a>
 under <a href="https://creativecommons.org/licenses/by/3.0/legalcode">CC BY 3.0</a>
 <br>
 

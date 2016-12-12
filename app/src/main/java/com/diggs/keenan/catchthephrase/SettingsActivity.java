@@ -3,11 +3,8 @@ package com.diggs.keenan.catchthephrase;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-
-import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -18,6 +15,7 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox food;
     CheckBox animals;
     CheckBox household;
+    CheckBox games;
     CheckBox words;
 
     @Override
@@ -30,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void onCheckboxClicked(View view) {
-//        preferences = getSharedPreferences("categories", MODE_PRIVATE);
+        preferences = getSharedPreferences("categories", MODE_PRIVATE);
         editor = preferences.edit();
 
         // is the box checked
@@ -68,10 +66,12 @@ public class SettingsActivity extends AppCompatActivity {
                 else
                     editor.putBoolean("sublist_words", false).apply();
                 break;
-        }
-        Map<String, ?> keys = preferences.getAll();
-        for (Map.Entry<String, ?> entry : keys.entrySet()) {
-            Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
+            case R.id.checkbox_games:
+                if (checked)
+                    editor.putBoolean("sublist_games", true).apply();
+                else
+                    editor.putBoolean("sublist_games", false).apply();
+                break;
         }
     }
 
@@ -80,6 +80,7 @@ public class SettingsActivity extends AppCompatActivity {
         food = (CheckBox) findViewById(R.id.checkbox_food);
         animals = (CheckBox) findViewById(R.id.checkbox_animals);
         household = (CheckBox) findViewById(R.id.checkbox_household);
+        games = (CheckBox) findViewById(R.id.checkbox_games);
         words = (CheckBox) findViewById(R.id.checkbox_words);
     }
 
@@ -90,11 +91,7 @@ public class SettingsActivity extends AppCompatActivity {
         food.setChecked(preferences.getBoolean("sublist_food", false));
         animals.setChecked(preferences.getBoolean("sublist_animals", false));
         household.setChecked(preferences.getBoolean("sublist_household", false));
+        games.setChecked(preferences.getBoolean("sublist_games", false));
         words.setChecked(preferences.getBoolean("sublist_words", false));
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }

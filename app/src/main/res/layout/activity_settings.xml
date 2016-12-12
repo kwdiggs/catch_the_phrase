@@ -64,6 +64,16 @@
             android:onClick="onCheckboxClicked"/>
 
         <CheckBox
+            android:id="@+id/checkbox_games"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:checked="true"
+            android:text="@string/games"
+            android:onClick="onCheckboxClicked"/>
+
+        <CheckBox
             android:id="@+id/checkbox_words"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -14,23 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
 public class GameplayActivity extends AppCompatActivity {
-    // text file names
+    // file name
     private final String WORD_BANK = "word_bank.txt";
-    private final String GAMEPLAY_LIST = "list.txt";
 
     // preferences
     SharedPreferences preferences;
@@ -93,31 +86,17 @@ public class GameplayActivity extends AppCompatActivity {
         // set listener for TextView
         setScreenListener();
 
-        // put word list in ArrayList of Strings
-        // do this once on creation
+        // put words in ArrayList of Strings
         wordList = new ArrayList<>();
         currentWordIndex = getCurrentIndex();
 
-        // sublist preferences
+        // parameterize preferences and word list
         preferences = getSharedPreferences("categories", MODE_PRIVATE);
-
-        // if user has not changed gameplay categories, continue using the current word list
-        // otherwise write the list anew
-        if (preferences.getBoolean("categories_updated", true)) {
-            createList();
-            editor = preferences.edit();
-            editor.putBoolean("categories_updated", false).apply();
-        } else {
-            repopulateList();
-        }
-    }
-
-    private void repopulateList() {
-
+        populateList();
     }
 
     // create word file for gameplay from the word bank, based on set categories
-    private void createList() {
+    private void populateList() {
         BufferedReader reader;
         try {
             final InputStream file = getAssets().open(WORD_BANK);
@@ -148,33 +127,12 @@ public class GameplayActivity extends AppCompatActivity {
                 }
             }
 
-            // shuffle the list and write to file
+            // shuffle the list
             Collections.shuffle(wordList);
-            writeToList();
+            currentWordIndex = 0;
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
-            onPause();
-            finish();
-        }
-    }
-
-    // write to text file
-    private void writeToList() {
-        try{
-            PrintWriter writer = new PrintWriter(GAMEPLAY_LIST, "UTF-8");
-            for(String word : wordList) {
-                writer.println(word);
-            }
-            writer.close();
-        } catch (FileNotFoundException ex) {
-            Log.d("s", "FILE NOT FOUND");
-            ex.printStackTrace();
-            onPause();
-            finish();
-        } catch (Exception e) {
-            Log.d("s", "THERE WAS A GENERAL ERROR");
-            e.printStackTrace();
             onPause();
             finish();
         }
@@ -313,7 +271,6 @@ public class GameplayActivity extends AppCompatActivity {
         releaseMediaPlayer(fastTimer);
         releaseMediaPlayer(buzzer);
     }
-
 
     @Override
     protected void onResume() {

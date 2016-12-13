@@ -1,1559 +1,4 @@
 *
-sublist_animals
-chipmunk
-flatworm
-boar
-bottom feeder
-orca whale
-fish
-wasp
-sandpiper
-zebu
-greenfly
-leopard
-alpaca
-crow
-tarantula
-anaconda
-lion
-urchin
-turkey
-manatee
-salmon
-bandicoot
-stingray
-hippo
-praying mantis
-damselfly
-stick bug
-platypus
-tortoise
-beetle
-rat
-chameleon
-piranha
-water strider
-woodpecker
-wireworm
-viper
-meerkat
-bee
-kitten
-dragonfly
-aardvark
-crane
-lobster
-skunk
-human
-bumble bee
-dolphin
-coyote
-capybara
-tern
-turtle
-jellyfish
-squirrel
-owl
-crayfish
-antelope
-goldfish
-crab spider
-wildebeest
-caterpillar
-hen
-eel
-ladybird
-assassin bug
-leaf bug
-tapeworm
-junebug
-cat
-koala
-gill
-crocodile
-pika
-feline
-wagtail
-scorpion
-quail
-moose
-gorilla
-pigeon
-parrot
-seadragon
-donkey
-buffalo
-wolf
-puppy
-earwig
-komodo dragon
-blackbird
-shark
-spider
-crab
-guinea pig
-wolf spider
-horseshoe crab
-cheetah
-giraffe
-caribou
-rooster
-gnat
-horsefly
-monkey
-mountain goat
-weta
-chinchilla
-fowl
-heron
-snake
-zorilla
-leech
-lemur
-salamander
-raccoon
-gnu
-ringtail
-elephant
-wombat
-okapi
-sea lion
-dog
-emu
-beaver
-gecko
-alligator
-swallow
-sea snake
-yellow jacket
-groundhog
-carnivore
-osprey
-mountain lion
-manta ray
-pig
-springtail
-goat
-oyster
-llama
-ant
-porcupine
-aphid
-cicada
-polar bear
-pupa
-herbivore
-ox
-reptile
-zebra
-finch
-gazelle
-hummingbird
-whitefly
-rattlesnake
-bed bug
-woolly mammoth
-eagle
-mongoose
-omnivore
-fruitworm
-hornet
-bullfrog
-cricket
-ferret
-squid
-flamingo
-planthopper
-lizard
-butterfly
-weasel
-cobra
-millipede
-starfish
-newt
-mule
-deer
-mosquito
-fly
-tiger
-wallaby
-guppy
-otter
-sidewinder
-chigger
-mealworm
-goose
-baboon
-python
-poison dart frog
-anteater
-seal
-dove
-chicken
-cardinal
-dingo
-cockatoo
-blue jay
-gum emperor
-jaguar
-reindeer
-fruit fly
-black widow
-bison
-cattle
-lynx
-moccasin
-elk
-hare
-horse
-borer
-octopus
-wildcat
-egret
-yak
-hoverfly
-tick
-grub
-orb weaver
-herring
-aardwolf
-termite
-krill
-centipede
-toad
-vulture
-shrimp
-mouse
-stork
-earthworm
-warthog
-kangaroo
-brown recluse
-water buffalo
-frog
-blowfly
-bear
-moth
-boa constrictor
-lice
-redbird
-swan
-rhino
-mite
-catfish
-spoonbill
-mayfly
-falcon
-mallard
-maggot
-badger
-magpie
-whale
-penguin
-amphibian
-sheep
-crustacean
-seagull
-ram
-hedgehog
-jackal
-cockroach
-worm
-shrew
-rodent
-budgie
-ladybug
-grasshopper
-camel
-panda
-puma
-trout
-sloth
-bobcat
-pony
-snail
-mollusk
-bat
-gerbil
-fox
-rabbit
-panther
-slug
-honey bee
-yellow admiral
-katydid
-orangutan
-canary
-duck
-seahorse
-invertebrate
-iguana
-opossum
-daddy long legs
-locust
-sparrow
-grizzly
-weevil
-salmonfly
-*
-sublist_food
-candy necklace
-marshmallow
-pinto beans
-soy milk
-PEZ
-orange slices
-brassica
-gumbo
-rum
-roast duck
-banana split
-Skittles
-pignut
-Mars Bar
-hot sauce
-sorrel
-salami
-mango
-Cuban coffee
-Ovaltine
-moon pie
-spring roll
-cream cheese
-corn dog
-egg drop soup
-sweet bread
-evaporated milk
-yam
-Junior Mints
-bagel
-Jell-O
-Mike and Ike
-lentil
-Jelly Belly
-Nestle
-anchovies
-lima beans
-gravy
-chili dog
-Smarties
-frozen yogurt
-fried chicken
-oats
-wine
-rye
-scallion
-gummy worms
-jelly bean
-rapeseed
-cedar
-martini
-gin
-souffle
-beer
-kidney bean
-thyme
-Dubble Bubble
-bell pepper
-watercress
-pancake
-dark meat
-yogurt
-coca
-key lime pie
-Butterfinger
-Surge
-soup
-moonshine
-prune
-cinnamon roll
-fruit
-jawbreaker
-vegetables
-DOTS
-hamburger
-collard greens
-white chocolate
-raspberry
-squash
-Hot Tamales
-vodka
-sushi
-English muffin
-black eyed peas
-grapes
-goat cheese
-Pop-Tarts
-taffy
-French dip
-lemon meringue pie
-queso
-potato
-avocado
-buttermilk
-sugar
-walnut
-bean paste
-lavender
-Pixie Stix
-3 Musketeers
-Lemonheads
-Swiss cheese
-Heath
-egg sandwich
-mocha
-absinthe
-French fries
-ranch dressing
-jalapeno
-maple peas
-sauerkraut
-palm sap
-bread
-muffin
-Fresca
-green beans
-bamboo shoot
-wheatgrass
-baked potatoes
-Corona
-Wonka
-Fettuccine Alfredo
-gyro
-porridge
-carrot cake
-dark chocolate
-Reese's Peanut Butter Cups
-parmesan
-Cabbage Patch Kids
-olives
-popcorn
-PayDay
-navy beans
-bourbon
-zucchini
-lo mein
-orange
-Atomic FireBall
-pepperoni
-croissant
-pineapple
-Dove Chocolate
-cucumber
-wasabi
-poulty
-porter ale
-cornbread
-coconut
-kidney beans
-bubble gum
-enchiladas
-pizza
-soda
-whey
-Pepsi
-Coca-Cola
-anise
-apple
-venison
-sorghum
-Take 5
-sweet and sour chicken
-celery
-mashed potatoes
-dumplings
-lime
-oatmeal
-sweet potato pie
-cheesecake
-gourd
-cauliflower
-corn
-angel food cake
-Maxwell House
-AMP Energy
-cappuccino
-cheeseburger
-jelly
-mustard
-York
-Irish coffee
-Air Heads
-cabbage
-tequila
-asparagus
-Reese's Fast Break
-grapefruit
-Swedish Fish
-pomace
-on the rocks
-barbecue
-seaweed
-salt water taffy
-water chestnut
-spaghetti
-melon
-rhubarb
-gumball
-wonton noodle
-buns
-cheese
-Frappuccino
-vanilla
-cherry
-egg roll
-pudding
-rue
-latte
-scone
-salt
-horseradish
-crepe
-sage
-bubble tea
-sparkling wine
-custard
-7 Up
-sumac
-Crush
-bundt cake
-pepper
-butter
-broth
-spirits
-herbs
-Tab
-gum
-lager
-Dum Dum Pop
-barbecue sauce
-mac n cheese
-Snickers
-peach rings
-hash browns
-lemonade
-macchiato
-pita
-cottage cheese
-fruitcake
-fajita
-jambalaya
-Americano
-tonic water
-preservers
-honey
-SweetTarts
-Sloppy Joe
-Great Northern Beans
-M&M's
-lollipop
-tartar sauce
-Mountain Dew
-basil
-Sprite
-veal
-Canada Dry
-100 Grand
-fennel
-Kit Kat
-rice wine
-fudge
-Shasta
-deviled eggs
-kosher
-beet
-dinner roll
-Mounds
-chow mein
-papaya
-black beans
-tomato
-vinegar
-sour cabbage
-Oreos
-gelato
-steak
-beef stroganoff
-Jolly Rancher
-candy corn
-bread bowl
-teriyaki
-Brussels sprout
-sponge cake
-tree nuts
-Vault
-Monterey Jack
-blueberry tea
-ugli fruit
-pomegranate
-chickweed
-espresso
-lemon ice box pie
-apple pie
-S'mores
-apple sauce
-curry
-lettuce
-ginger ale
-mayonnaise
-strawberry
-mozzarella sticks
-haggis
-caper
-Twix
-kool aid
-pulled pork
-watermelon
-Mello Yello
-whiskey
-cardoon
-cereal
-licorice
-radish
-banana
-bacon
-snow cone
-baloney
-Mr. Goodbar
-brownies
-ham
-amaranth
-stock
-nacho cheese
-baked beans
-Jolt Cola
-waffle
-death by chocolate
-dumpling
-coffee cake
-Velveeta
-sucker
-bok choy
-BabyRuth
-buffalo wings
-organic
-Tootsie Roll
-meat pie
-rutabaga
-milk
-beef brisket
-Fruit by the Foot
-red meat
-nougat
-carrot
-salad
-Monster
-Pop Rocks
-blueberry
-maple syrup
-Squirt
-candy cane
-Shepard's Pie
-liqueur
-millet
-Bacon soda
-sandwich
-Twizzlers
-sangria
-dill pickle
-Mr. Pibb
-leek
-gelatin
-sausage
-Nesquick
-passion fruit
-peach
-omelette
-peanut
-artichoke
-lard
-quesadilla
-banana bread
-daikon
-Starbust
-Baby Bottle Pop
-RUNTS
-chips
-turducken
-ramen noodles
-ring pop
-Life Savers
-paptrika
-strudel
-chocolate cake
-Hershey's Kiss
-barley
-lasagna
-hot dog
-cinnamon
-salsa
-quince
-pumpkin
-spinach
-straw
-truffle
-candy
-Rocky Road
-Nerds
-Peeps
-scrambled eggs
-apple cider
-hush puppies
-alligator meat
-pistachio
-Red Bull
-clove
-doughnut
-peaches n cream
-poppy seeds
-gingerbread
-hummus
-ice cream
-mushroom
-onion
-gluten-free
-Juniper berry
-relish
-Yazoo
-yule log
-cupcake
-apricot
-meatloaf
-fiber
-tortilla
-cheese dip
-plantain
-almond
-taco
-liver
-chickpeas
-chives
-Peking duck
-cumin
-rice
-blue peas
-wheat
-sweet tea
-turnip
-slushee
-cashew
-dinner mint
-biscuit
-broccoli
-calzone
-plum
-gummy bear
-sour cream
-okra
-buckwheat
-ketchup
-saffron
-quiche
-Texas toast
-stew
-boysenberry
-Minute Maid
-fish and chips
-chicken nuggets
-pecan
-garlic
-juice
-Fanta
-blue cheese
-pale ale
-Bazooka Gum
-clam chowder
-sugarcane
-laurel
-sex on the beach
-toffee
-Full Throttle
-parsnip
-grits
-champagne
-soybeans
-Cool Whip
-hot chocolate
-Romaine lettuce
-agave
-coffee
-wintergreen
-eggs
-blackberry
-sprinkles
-peanut butter
-egg salad
-peppermint
-skim milk
-ghost pepper
-brandy
-chocolate
-almond milk
-fried rice
-kale
-toast
-dragon fruit
-Scotch ale
-cookies
-*
-sublist_games
-Crazy Eights
-Spades
-Hearts
-Gin Rummy
-Uno
-Skip-Bo
-Phase 10
-Poker
-Blackjack
-Texas Hold 'Em
-Egyptian Ratscrew
-War
-Go Fish
-Canasta
-Bridge
-Cribbage
-Old Maid
-Pinochle
-Cribbage
-Bingo
-Speed
-Solitaire
-Cards Against Humanity
-Pokemon
-Spoons
-Apples to Apples
-Magic: The Gathering
-Munchkin
-Spit
-Yu-Gi-Oh!
-Love Letter
-Double Solitaire
-Dominion
-Golf
-Hanabi
-Screw the Dealer
-Memory Match
-Whist
-Twenty-One
-Fight the Landlord
-Casino
-Concentration
-Kings in the Corner
-Ninety-Nine
-Sequence
-Slapjack
-Euchre
-Nertz
-400
-500
-Backgammon
-Battleship
-Blockade
-Camelot
-Checkers
-Chess
-Go
-Guess Who?
-Hare and Hounds
-Othello
-Mad Gab
-Stratego
-Shogi
-Space Hulk
-Clue
-The Great TrainRobbery
-Jenga
-Khet
-King of Tokyo
-Monopoly
-Risk
-Shogun
-Titan
-Balderdash
-Blockus
-Dead of Winter
-Don't Miss the Boat
-Dungeons & Dragons
-Enchanted Forest
-Escape from Atlantis
-Figure It Out
-Yahtzee
-Trivial Pursuit
-Trouble
-Ticket to Ride
-Snakes and Ladders
-Small World
-The Settlers of Catan
-Scrabble
-Scene It
-Scattegories
-Roulette
-Kerplunk
-Operation
-Perfection
-Twister
-Hungry Hungry Hippos
-Candy Land
-Don't Break the Ice
-Mouse Trap
-Sorry!
-Parcheesi
-Kaiser
-Pinball
-Tag
-Blind Man's Buff
-Bloody Knuckles
-Cat's Cradle
-Cops and Robbers
-Dodgeball
-Duck, Duck, Goose
-Four Square
-Hand Ball
-Hide-and-Seek
-Hopscotch
-Ground is Lava
-Hot Potato
-I Spy
-Jumping Rope
-Jinx
-Keep Away
-Kickball
-Kick the Can
-Leapfrog
-London Bridge
-Limbo
-Marbles
-Mother May I?
-Musical Chairs
-Marco Polo
-Ninja
-Paddle Ball
-Paper Football
-Patty Cake
-Peekaboo
-Red Rover
-Rock-paper-scissors
-Ring Around the Rosie
-Sardines
-Heads Up Seven Up
-Simon Says
-Sleeping Lions
-Spud
-Red Light, Green Light
-Freeze Tag
-Tennis
-Tether Ball
-Thumb War
-Tic-tac-toe
-Tiddlywinks
-Truth or Dare?
-Tug Of War
-Charades
-Super Mario Bros.
-Portal
-Tetris
-League of Legends
-Overwatch
-World Of Warcraft
-Minecraft
-Pong
-Space Invaders
-Donkey Kong
-Asteroids
-Frogger
-Centipede
-Street Fighter
-Defender
-Missile Command
-Dig Dug
-Breakout
-Paperboy
-Duck Hunt
-Contra
-Galaga
-Double Dragon
-The Legend of Zelda
-Gauntlet
-Commando
-Words with Friends
-Ping Pong
-Foosball
-Billiards
-Air Hockey
-House of Cards
-Craps
-Slot Machine
-Croquet
-Skee-Ball
-Chinese Checkers
-Bananagrams
-Connect Four
-Dominoes
-Dots and Boxes
-Hangman
-MASH
-Consequences
-Mafia
-Pit
-Werewolf
-*
-sublist_household
-board game
-driveway
-sofa
-hedge trimmers
-shovel
-hamper
-doll
-oven mitt
-shrub
-bikini
-medicine cabinet
-hairspray
-credit card
-baseball cap
-overcoat
-wardrobe
-checkbook
-antiseptic
-legal pad
-tissue
-carport
-leaf blower
-router
-porch light
-entryway
-business card
-paintbrush
-scale
-keyboard
-bidet
-can opener
-VHS
-eyeliner
-yarn
-wire
-wax paper
-tape
-chainsaw
-shoebox
-TV antenna
-entertainment center
-scarf
-bench
-bathrobe
-lipstick
-headband
-deck of cards
-marker
-back burner
-blouse
-glasses
-Quran
-closet
-plastic wrap
-ceiling
-magnet
-purse
-rolling pin
-coaster
-whiteboard
-eraser
-beanbag
-pan
-welcome mat
-shower liner
-toilet
-mouthwash
-fabric softener
-makeup
-aloe vera
-trunk
-cotton swab
-tablespoon
-chair
-headphones
-basket
-construction paper
-urn
-dictionary
-TV dinner
-flannel
-computer
-conditioner
-deodorant
-shower head
-skirt
-bed frame
-door knocker
-smoke detector
-handbag
-fork
-perfume
-dog bed
-floor wax
-cologne
-mop
-trampoline
-backpack
-potted plant
-swimsuit
-Legos
-fence
-door
-soap
-dinner bell
-whirlpool
-garden
-rolling chair
-nail clippers
-toilet scrubber
-radio
-egg timer
-blemish
-needle
-pizza cutter
-hair dryer
-mail slot
-towel
-quilt
-trash can
-color pencil
-dress
-washing machine
-vent
-candle
-skateboard
-screwdriver
-sunglasses
-sunblock
-band-aid
-whisk
-blinds
-mittens
-power strip
-bookend
-nail filer
-hood
-long johns
-toys
-paperclip
-napkin
-knife
-pantry
-rubbing alcohol
-air freshener
-lamp
-footboard
-index card
-dust mop
-guitar
-teddy bear
-floor
-canvas
-shades
-bandanna
-plastic bag
-mouse trap
-spatula
-futon
-pencil sharpener
-picture frame
-fire extinguisher
-Bible
-thumb tack
-panties
-body wash
-sweat pants
-video game
-beanie
-arbor
-blanket
-tuxedo
-toothbrush
-roof
-lotion
-lava lamp
-encyclopedia
-wineglass 
-sheets
-bracelet
-vitamins
-clothes hanger
-planner
-screen door
-cowboy hat
-television
-flash drive
-earrings
-wreath
-satellite dish
-basin
-rubber hose
-kettle
-scissors
-strainer
-controller
-office
-measuring tape
-grill
-microwave
-pen
-water bottle
-puzzle pieces
-DVD
-spice rack
-tumbler
-ribbon
-candle holder
-hammer
-paper towel
-glue
-outlet
-shower curtain
-envelope
-drapes
-label maker
-ottoman
-mug
-whetstone
-pencil
-cupboard
-hair scrunchie
-water colors
-bathtub
-Christmas tree
-wrench
-gas meter
-overalls
-mattress
-liquid plumber
-grass
-living room
-swingset
-grocery bag
-remote control
-shirt
-Christmas lights
-counter
-bowl
-office chair
-binder
-chew toy
-lip gloss
-dining room
-modem
-pillow
-briefcase
-stove
-headboard
-textbook
-light switch
-speakers
-garbage bag
-laptop
-compass
-chapstick
-drain
-screws
-nightstand
-sidewalk
-necklace
-porch swing
-loveseat
-bookshelf
-paper shredder
-rake
-recycling bin
-CD player
-food
-knickknack
-dishwasher
-vest
-dresser
-faucet
-shingle
-eye shadow
-mirror
-matches
-cheese grater
-soccer ball
-bonnet
-shoes
-parasol
-telephone
-rumpus room
-nails
-picture
-potato peeler
-yoga mat
-divider
-fan
-baby carriage
-crib
-refrigerator
-garage
-tire swing
-banister
-fire pit
-pipes
-wooden spoon
-box fan
-aspirin
-shampoo
-shutters
-chandelier
-permanent marker
-dustpan
-boots
-china cabinet
-ladle
-paper
-baking soda
-q-tip
-dice
-slide
-fallout shelter
-handkerchief
-gym socks
-doorbell
-foosball table
-piano
-loofah
-bra
-photograph
-bottle opener
-dust mask
-twisty tie
-bug spray
-printer
-power line
-slippers
-humidifier
-cutting board
-cable box
-umbrella
-floorboard
-draining rack
-contact lens
-rubber ducky
-broom
-measuring cup
-nail polish
-book
-bucket
-placemat
-magnifying glass
-pliers
-bleach
-mixer
-stairs
-rags
-wick
-first-aid kit
-throw pillow
-dryer
-box
-toaster
-hole punch
-weed wacker
-ink
-dog bowl
-gloves
-sleeping bag
-calculator
-milk crate
-chimney
-stockings
-rain poncho
-sticky note
-soap dish
-gazebo
-brick
-boxspring
-roller skate
-garbage disposal
-air mattress
-wedge
-sweatband
-chopsticks
-iron
-helmet
-suitcase
-Raid
-roach hotel
-blender
-grease jar
-fireplace
-night light
-shower
-holly
-diary
-monitor
-basketball
-apron
-candlestick
-whiteout
-flowers
-mantle
-floppy disk
-teaspoon
-jewelry
-mascara
-desk
-water closet
-pants
-tweezers
-oven
-people
-tablecloth
-razor blade
-paint
-stroller
-sneakers
-wallet
-detergent
-yard
-pool table
-hydrogen peroxide
-stapler
-thermos
-aluminum foil
-basement
-ice
-plate
-fedora
-deck
-rug
-axe
-action figure
-hammock
-doorknob
-poster
-face cloth
-curtain
-pitcher
-beret
-coffee table
-cookie sheet
-space heater
-eyedropper
-coat
-notepad
-furnace
-drawer
-steel wool
-disinfectant
-doily
-breakfast tray
-needle and thread
-glass pan
-cookbook
-kitchen
-ruler
-mistletoe
-comb
-extension cord
-socks
-visor
-espresso maker
-stamps
-nightcap
-wall
-dutch oven
-recliner
-dog food
-coat hanger
-rubber band
-journal
-push pin
-file cabinet
-answering machine
-bathroom
-manila folder
-tile
-baseball glove
-cooler
-vase
-lunch box
-table
-coffee maker
-sandals
-balcony
-oven rack
-sink
-night gown
-swim trunks
-carpet
-gym bag
-ice cream scoop
-waste basket
-floss
-calendar
-underwear
-shawl
-clock
-toilet paper
-electrical socket
-footstool
-hairbrush
-water heater
-folding chair
-lawnmower
-scanner
-light bulb
-lighter
-bedroom
-tree
-curling iron
-soap dispenser
-prescriptions
-jacket
-pot
-freezer
-French press
-propane tank
-plunger
-baseball bat
-hat
-sponge
-stationery
-tool room
-bath mat
-window
-address plaque
-bar
-pajamas
-surge protector
-highlighter
-cushion
-baseball
-vinegar
-door stop
-stool
-battery
-footpath
-spoon
-hinge
-crayon
-cup
-bed
-skillet
-lingerie
-bush
-cash
-couch
-saucer
-mailbox
-flashlight
-chest
-fax machine
-vacuum cleaner
-drill
-bubble wrap
-swimming pool
-*
 sublist_people
 Lance Armstrong
 Tonks
@@ -2288,7 +733,2143 @@ U2
 Jennifer Lopez
 Hercules
 Larry the Cucumber
-*
+sublist_food
+candy necklace
+marshmallow
+pinto beans
+soy milk
+PEZ
+orange slices
+brassica
+gumbo
+rum
+roast duck
+banana split
+Skittles
+pignut
+Mars Bar
+hot sauce
+sorrel
+salami
+mango
+Cuban coffee
+Ovaltine
+moon pie
+spring roll
+cream cheese
+corn dog
+egg drop soup
+sweet bread
+evaporated milk
+yam
+Junior Mints
+bagel
+Jell-O
+Mike and Ike
+lentil
+Jelly Belly
+Nestle
+anchovies
+lima beans
+gravy
+chili dog
+Smarties
+frozen yogurt
+fried chicken
+oats
+wine
+rye
+scallion
+gummy worms
+jelly bean
+rapeseed
+cedar
+martini
+gin
+souffle
+beer
+kidney bean
+thyme
+Dubble Bubble
+bell pepper
+watercress
+pancake
+dark meat
+yogurt
+coca
+key lime pie
+Butterfinger
+Surge
+soup
+moonshine
+prune
+cinnamon roll
+fruit
+jawbreaker
+vegetables
+DOTS
+hamburger
+collard greens
+white chocolate
+raspberry
+squash
+Hot Tamales
+vodka
+sushi
+English muffin
+black eyed peas
+grapes
+goat cheese
+Pop-Tarts
+taffy
+French dip
+lemon meringue pie
+queso
+potato
+avocado
+buttermilk
+sugar
+walnut
+bean paste
+lavender
+Pixie Stix
+3 Musketeers
+Lemonheads
+Swiss cheese
+Heath
+egg sandwich
+mocha
+absinthe
+French fries
+ranch dressing
+jalapeno
+maple peas
+sauerkraut
+palm sap
+bread
+muffin
+Fresca
+green beans
+bamboo shoot
+wheatgrass
+baked potatoes
+Corona
+Wonka
+Fettuccine Alfredo
+gyro
+porridge
+carrot cake
+dark chocolate
+Reese's Peanut Butter Cups
+parmesan
+Cabbage Patch Kids
+olives
+popcorn
+PayDay
+navy beans
+bourbon
+zucchini
+lo mein
+orange
+Atomic FireBall
+pepperoni
+croissant
+pineapple
+Dove Chocolate
+cucumber
+wasabi
+poultry
+porter ale
+cornbread
+coconut
+kidney beans
+bubble gum
+enchiladas
+pizza
+soda
+whey
+Pepsi
+Coca-Cola
+anise
+apple
+venison
+sorghum
+Take 5
+sweet and sour chicken
+celery
+mashed potatoes
+dumplings
+lime
+oatmeal
+sweet potato pie
+cheesecake
+gourd
+cauliflower
+corn
+angel food cake
+Maxwell House
+AMP Energy
+cappuccino
+cheeseburger
+jelly
+mustard
+York
+Irish coffee
+Air Heads
+cabbage
+tequila
+asparagus
+Reese's Fast Break
+grapefruit
+Swedish Fish
+pomace
+on the rocks
+barbecue
+seaweed
+salt water taffy
+water chestnut
+spaghetti
+melon
+rhubarb
+gumball
+wonton noodle
+buns
+cheese
+Frappuccino
+vanilla
+cherry
+egg roll
+pudding
+rue
+latte
+scone
+salt
+horseradish
+crepe
+sage
+bubble tea
+sparkling wine
+custard
+7 Up
+sumac
+Crush
+bundt cake
+pepper
+butter
+broth
+spirits
+herbs
+Tab
+gum
+lager
+Dum Dum Pop
+barbecue sauce
+mac n cheese
+Snickers
+peach rings
+hash browns
+lemonade
+macchiato
+pita
+cottage cheese
+fruitcake
+fajita
+jambalaya
+Americano
+tonic water
+preservers
+honey
+SweetTarts
+Sloppy Joe
+Great Northern Beans
+M&M's
+lollipop
+tartar sauce
+Mountain Dew
+basil
+Sprite
+veal
+Canada Dry
+100 Grand
+fennel
+Kit Kat
+rice wine
+fudge
+Shasta
+deviled eggs
+kosher
+beet
+dinner roll
+Mounds
+chow mein
+papaya
+black beans
+tomato
+vinegar
+sour cabbage
+Oreos
+gelato
+steak
+beef stroganoff
+Jolly Rancher
+candy corn
+bread bowl
+teriyaki
+Brussels sprout
+sponge cake
+tree nuts
+Vault
+Monterey Jack
+blueberry tea
+ugli fruit
+pomegranate
+chickweed
+espresso
+lemon ice box pie
+apple pie
+S'mores
+apple sauce
+curry
+lettuce
+ginger ale
+mayonnaise
+strawberry
+mozzarella sticks
+haggis
+caper
+Twix
+kool aid
+pulled pork
+watermelon
+Mello Yello
+whiskey
+cardoon
+cereal
+licorice
+radish
+banana
+bacon
+snow cone
+baloney
+Mr. Goodbar
+brownies
+ham
+amaranth
+stock
+nacho cheese
+baked beans
+Jolt Cola
+waffle
+death by chocolate
+dumpling
+coffee cake
+Velveeta
+sucker
+bok choy
+BabyRuth
+buffalo wings
+organic
+Tootsie Roll
+meat pie
+rutabaga
+milk
+beef brisket
+Fruit by the Foot
+red meat
+nougat
+carrot
+salad
+Monster
+Pop Rocks
+blueberry
+maple syrup
+Squirt
+candy cane
+Shepard's Pie
+liqueur
+millet
+Bacon soda
+sandwich
+Twizzlers
+sangria
+dill pickle
+Mr. Pibb
+leek
+gelatin
+sausage
+Nesquick
+passion fruit
+peach
+omelette
+peanut
+artichoke
+lard
+quesadilla
+banana bread
+daikon
+Starbust
+Baby Bottle Pop
+RUNTS
+chips
+turducken
+ramen noodles
+ring pop
+Life Savers
+paptrika
+strudel
+chocolate cake
+Hershey's Kiss
+barley
+lasagna
+hot dog
+cinnamon
+salsa
+quince
+pumpkin
+spinach
+straw
+truffle
+candy
+Rocky Road
+Nerds
+Peeps
+scrambled eggs
+apple cider
+hush puppies
+alligator meat
+pistachio
+Red Bull
+clove
+doughnut
+peaches n cream
+poppy seeds
+gingerbread
+hummus
+ice cream
+mushroom
+onion
+gluten-free
+Juniper berry
+relish
+Yazoo
+yule log
+cupcake
+apricot
+meatloaf
+fiber
+tortilla
+cheese dip
+plantain
+almond
+taco
+liver
+chickpeas
+chives
+Peking duck
+cumin
+rice
+blue peas
+wheat
+sweet tea
+turnip
+slushee
+cashew
+dinner mint
+biscuit
+broccoli
+calzone
+plum
+gummy bear
+sour cream
+okra
+buckwheat
+ketchup
+saffron
+quiche
+Texas toast
+stew
+boysenberry
+Minute Maid
+fish and chips
+chicken nuggets
+pecan
+garlic
+juice
+Fanta
+blue cheese
+pale ale
+Bazooka Gum
+clam chowder
+sugarcane
+laurel
+sex on the beach
+toffee
+Full Throttle
+parsnip
+grits
+champagne
+soybeans
+Cool Whip
+hot chocolate
+Romaine lettuce
+agave
+coffee
+wintergreen
+eggs
+blackberry
+sprinkles
+peanut butter
+egg salad
+peppermint
+skim milk
+ghost pepper
+brandy
+chocolate
+almond milk
+fried rice
+kale
+toast
+dragon fruit
+Scotch ale
+cookies
+sublist_animals
+chipmunk
+flatworm
+boar
+bottom feeder
+orca whale
+fish
+wasp
+sandpiper
+zebu
+greenfly
+leopard
+alpaca
+crow
+tarantula
+anaconda
+lion
+urchin
+turkey
+manatee
+salmon
+bandicoot
+stingray
+hippo
+praying mantis
+damselfly
+stick bug
+platypus
+tortoise
+beetle
+rat
+chameleon
+piranha
+water strider
+woodpecker
+wireworm
+viper
+meerkat
+bee
+kitten
+dragonfly
+aardvark
+crane
+lobster
+skunk
+human
+bumble bee
+dolphin
+coyote
+capybara
+tern
+turtle
+jellyfish
+squirrel
+owl
+crayfish
+antelope
+goldfish
+crab spider
+wildebeest
+caterpillar
+hen
+eel
+ladybird
+assassin bug
+leaf bug
+tapeworm
+junebug
+cat
+koala
+gill
+crocodile
+pika
+feline
+wagtail
+scorpion
+quail
+moose
+gorilla
+pigeon
+parrot
+seadragon
+donkey
+buffalo
+wolf
+puppy
+earwig
+komodo dragon
+blackbird
+shark
+spider
+crab
+guinea pig
+wolf spider
+horseshoe crab
+cheetah
+giraffe
+caribou
+rooster
+gnat
+horsefly
+monkey
+mountain goat
+weta
+chinchilla
+fowl
+heron
+snake
+zorilla
+leech
+lemur
+salamander
+raccoon
+gnu
+ringtail
+elephant
+wombat
+okapi
+sea lion
+dog
+emu
+beaver
+gecko
+alligator
+swallow
+sea snake
+yellow jacket
+groundhog
+carnivore
+osprey
+mountain lion
+manta ray
+pig
+springtail
+goat
+oyster
+llama
+ant
+porcupine
+aphid
+cicada
+polar bear
+pupa
+herbivore
+ox
+reptile
+zebra
+finch
+gazelle
+hummingbird
+whitefly
+rattlesnake
+bed bug
+woolly mammoth
+eagle
+mongoose
+omnivore
+fruitworm
+hornet
+bullfrog
+cricket
+ferret
+squid
+flamingo
+planthopper
+lizard
+butterfly
+weasel
+cobra
+millipede
+starfish
+newt
+mule
+deer
+mosquito
+fly
+tiger
+wallaby
+guppy
+otter
+sidewinder
+chigger
+mealworm
+goose
+baboon
+python
+poison dart frog
+anteater
+seal
+dove
+chicken
+cardinal
+dingo
+cockatoo
+blue jay
+gum emperor
+jaguar
+reindeer
+fruit fly
+black widow
+bison
+cattle
+lynx
+moccasin
+elk
+hare
+horse
+borer
+octopus
+wildcat
+egret
+yak
+hoverfly
+tick
+grub
+orb weaver
+herring
+aardwolf
+termite
+krill
+centipede
+toad
+vulture
+shrimp
+mouse
+stork
+earthworm
+warthog
+kangaroo
+brown recluse
+water buffalo
+frog
+blowfly
+bear
+moth
+boa constrictor
+lice
+redbird
+swan
+rhino
+mite
+catfish
+spoonbill
+mayfly
+falcon
+mallard
+maggot
+badger
+magpie
+whale
+penguin
+amphibian
+sheep
+crustacean
+seagull
+ram
+hedgehog
+jackal
+cockroach
+worm
+shrew
+rodent
+budgie
+ladybug
+grasshopper
+camel
+panda
+puma
+trout
+sloth
+bobcat
+pony
+snail
+mollusk
+bat
+gerbil
+fox
+rabbit
+panther
+slug
+honey bee
+yellow admiral
+katydid
+orangutan
+canary
+duck
+seahorse
+invertebrate
+iguana
+opossum
+daddy long legs
+locust
+sparrow
+grizzly
+weevil
+salmonfly
+sublist_household
+board game
+driveway
+sofa
+hedge trimmers
+shovel
+hamper
+doll
+oven mitt
+shrub
+bikini
+medicine cabinet
+hairspray
+credit card
+baseball cap
+overcoat
+wardrobe
+checkbook
+antiseptic
+legal pad
+tissue
+carport
+leaf blower
+router
+porch light
+entryway
+business card
+paintbrush
+scale
+keyboard
+bidet
+can opener
+VHS
+eyeliner
+yarn
+wire
+wax paper
+tape
+chainsaw
+shoebox
+TV antenna
+entertainment center
+scarf
+bench
+bathrobe
+lipstick
+headband
+deck of cards
+marker
+back burner
+blouse
+glasses
+Quran
+closet
+plastic wrap
+ceiling
+magnet
+purse
+rolling pin
+coaster
+whiteboard
+eraser
+beanbag
+pan
+welcome mat
+shower liner
+toilet
+mouthwash
+fabric softener
+makeup
+aloe vera
+trunk
+cotton swab
+tablespoon
+chair
+headphones
+basket
+construction paper
+urn
+dictionary
+TV dinner
+flannel
+computer
+conditioner
+deodorant
+shower head
+skirt
+bed frame
+door knocker
+smoke detector
+handbag
+fork
+perfume
+dog bed
+floor wax
+cologne
+mop
+trampoline
+backpack
+potted plant
+swimsuit
+Legos
+fence
+door
+soap
+dinner bell
+whirlpool
+garden
+rolling chair
+nail clippers
+toilet scrubber
+radio
+egg timer
+blemish
+needle
+pizza cutter
+hair dryer
+mail slot
+towel
+quilt
+trash can
+color pencil
+dress
+washing machine
+vent
+candle
+skateboard
+screwdriver
+sunglasses
+sunblock
+band-aid
+whisk
+blinds
+mittens
+power strip
+bookend
+nail filer
+hood
+long johns
+toys
+paperclip
+napkin
+knife
+pantry
+rubbing alcohol
+air freshener
+lamp
+footboard
+index card
+dust mop
+guitar
+teddy bear
+floor
+canvas
+shades
+bandanna
+plastic bag
+mouse trap
+spatula
+futon
+pencil sharpener
+picture frame
+fire extinguisher
+Bible
+thumb tack
+panties
+body wash
+sweat pants
+video game
+beanie
+arbor
+blanket
+tuxedo
+toothbrush
+roof
+lotion
+lava lamp
+encyclopedia
+wineglass 
+sheets
+bracelet
+vitamins
+clothes hanger
+planner
+screen door
+cowboy hat
+television
+flash drive
+earrings
+wreath
+satellite dish
+basin
+rubber hose
+kettle
+scissors
+strainer
+controller
+office
+measuring tape
+grill
+microwave
+pen
+water bottle
+puzzle pieces
+DVD
+spice rack
+tumbler
+ribbon
+candle holder
+hammer
+paper towel
+glue
+outlet
+shower curtain
+envelope
+drapes
+label maker
+ottoman
+mug
+whetstone
+pencil
+cupboard
+hair scrunchie
+water colors
+bathtub
+Christmas tree
+wrench
+gas meter
+overalls
+mattress
+liquid plumber
+grass
+living room
+swingset
+grocery bag
+remote control
+shirt
+Christmas lights
+counter
+bowl
+office chair
+binder
+chew toy
+lip gloss
+dining room
+modem
+pillow
+briefcase
+stove
+headboard
+textbook
+light switch
+speakers
+garbage bag
+laptop
+compass
+chapstick
+drain
+screws
+nightstand
+sidewalk
+necklace
+porch swing
+loveseat
+bookshelf
+paper shredder
+rake
+recycling bin
+CD player
+food
+knickknack
+dishwasher
+vest
+dresser
+faucet
+shingle
+eye shadow
+mirror
+matches
+cheese grater
+soccer ball
+bonnet
+shoes
+parasol
+telephone
+rumpus room
+nails
+picture
+potato peeler
+yoga mat
+divider
+fan
+baby carriage
+crib
+refrigerator
+garage
+tire swing
+banister
+fire pit
+pipes
+wooden spoon
+box fan
+aspirin
+shampoo
+shutters
+chandelier
+permanent marker
+dustpan
+boots
+china cabinet
+ladle
+paper
+baking soda
+q-tip
+dice
+slide
+fallout shelter
+handkerchief
+gym socks
+doorbell
+foosball table
+piano
+loofah
+bra
+photograph
+bottle opener
+dust mask
+twisty tie
+bug spray
+printer
+power line
+slippers
+humidifier
+cutting board
+cable box
+umbrella
+floorboard
+draining rack
+contact lens
+rubber ducky
+broom
+measuring cup
+nail polish
+book
+bucket
+placemat
+magnifying glass
+pliers
+bleach
+mixer
+stairs
+rags
+wick
+first-aid kit
+throw pillow
+dryer
+box
+toaster
+hole punch
+weed wacker
+ink
+dog bowl
+gloves
+sleeping bag
+calculator
+milk crate
+chimney
+stockings
+rain poncho
+sticky note
+soap dish
+gazebo
+brick
+boxspring
+roller skate
+garbage disposal
+air mattress
+wedge
+sweatband
+chopsticks
+iron
+helmet
+suitcase
+Raid
+roach hotel
+blender
+grease jar
+fireplace
+night light
+shower
+holly
+diary
+monitor
+basketball
+apron
+candlestick
+whiteout
+flowers
+mantle
+floppy disk
+teaspoon
+jewelry
+mascara
+desk
+water closet
+pants
+tweezers
+oven
+people
+tablecloth
+razor blade
+paint
+stroller
+sneakers
+wallet
+detergent
+yard
+pool table
+hydrogen peroxide
+stapler
+thermos
+aluminum foil
+basement
+ice
+plate
+fedora
+deck
+rug
+axe
+action figure
+hammock
+doorknob
+poster
+face cloth
+curtain
+pitcher
+beret
+coffee table
+cookie sheet
+space heater
+eyedropper
+coat
+notepad
+furnace
+drawer
+steel wool
+disinfectant
+doily
+breakfast tray
+needle and thread
+glass pan
+cookbook
+kitchen
+ruler
+mistletoe
+comb
+extension cord
+socks
+visor
+espresso maker
+stamps
+nightcap
+wall
+dutch oven
+recliner
+dog food
+coat hanger
+rubber band
+journal
+push pin
+file cabinet
+answering machine
+bathroom
+manila folder
+tile
+baseball glove
+cooler
+vase
+lunch box
+table
+coffee maker
+sandals
+balcony
+oven rack
+sink
+night gown
+swim trunks
+carpet
+gym bag
+ice cream scoop
+waste basket
+floss
+calendar
+underwear
+shawl
+clock
+toilet paper
+electrical socket
+footstool
+hairbrush
+water heater
+folding chair
+lawnmower
+scanner
+light bulb
+lighter
+bedroom
+tree
+curling iron
+soap dispenser
+prescriptions
+jacket
+pot
+freezer
+French press
+propane tank
+plunger
+baseball bat
+hat
+sponge
+stationery
+tool room
+bath mat
+window
+address plaque
+bar
+pajamas
+surge protector
+highlighter
+cushion
+baseball
+door stop
+stool
+battery
+footpath
+spoon
+hinge
+crayon
+cup
+bed
+skillet
+lingerie
+bush
+cash
+couch
+saucer
+mailbox
+flashlight
+chest
+fax machine
+vacuum cleaner
+drill
+bubble wrap
+swimming pool
+sublist_games
+Crazy Eights
+Spades
+Hearts
+Gin Rummy
+Uno
+Skip-Bo
+Phase 10
+Poker
+Blackjack
+Texas Hold 'Em
+Egyptian Ratscrew
+War
+Go Fish
+Canasta
+Bridge
+Cribbage
+Old Maid
+Pinochle
+Bingo
+Speed
+Solitaire
+Cards Against Humanity
+Pokemon
+Spoons
+Apples to Apples
+Magic: The Gathering
+Munchkin
+Spit
+Yu-Gi-Oh!
+Love Letter
+Double Solitaire
+Dominion
+Golf
+Hanabi
+Screw the Dealer
+Memory Match
+Whist
+Twenty-One
+Fight the Landlord
+Casino
+Concentration
+Kings in the Corner
+Ninety-Nine
+Sequence
+Slapjack
+Euchre
+Nertz
+400
+500
+Backgammon
+Battleship
+Blockade
+Camelot
+Checkers
+Chess
+Go
+Guess Who?
+Hare and Hounds
+Othello
+Mad Gab
+Stratego
+Shogi
+Space Hulk
+Clue
+The Great TrainRobbery
+Jenga
+Khet
+King of Tokyo
+Monopoly
+Risk
+Shogun
+Titan
+Balderdash
+Blockus
+Dead of Winter
+Don't Miss the Boat
+Dungeons & Dragons
+Enchanted Forest
+Escape from Atlantis
+Figure It Out
+Yahtzee
+Trivial Pursuit
+Trouble
+Ticket to Ride
+Snakes and Ladders
+Small World
+The Settlers of Catan
+Scrabble
+Scene It
+Scattegories
+Roulette
+Kerplunk
+Operation
+Perfection
+Twister
+Hungry Hungry Hippos
+Candy Land
+Don't Break the Ice
+Mouse Trap
+Sorry!
+Parcheesi
+Kaiser
+Pinball
+Tag
+Blind Man's Buff
+Bloody Knuckles
+Cat's Cradle
+Cops and Robbers
+Dodgeball
+Duck, Duck, Goose
+Four Square
+Hand Ball
+Hide-and-Seek
+Hopscotch
+Ground is Lava
+Hot Potato
+I Spy
+Jumping Rope
+Jinx
+Keep Away
+Kickball
+Kick the Can
+Leapfrog
+London Bridge
+Limbo
+Marbles
+Mother May I?
+Musical Chairs
+Marco Polo
+Ninja
+Paddle Ball
+Paper Football
+Patty Cake
+Peekaboo
+Red Rover
+Rock-paper-scissors
+Ring Around the Rosie
+Sardines
+Heads Up Seven Up
+Simon Says
+Sleeping Lions
+Spud
+Red Light, Green Light
+Freeze Tag
+Tennis
+Tether Ball
+Thumb War
+Tic-tac-toe
+Tiddlywinks
+Truth or Dare?
+Tug Of War
+Charades
+Super Mario Bros.
+Portal
+Tetris
+League of Legends
+Overwatch
+World Of Warcraft
+Minecraft
+Pong
+Space Invaders
+Asteroids
+Frogger
+Centipede
+Street Fighter
+Defender
+Missile Command
+Dig Dug
+Breakout
+Paperboy
+Duck Hunt
+Contra
+Galaga
+Double Dragon
+The Legend of Zelda
+Gauntlet
+Commando
+Words with Friends
+Ping Pong
+Foosball
+Billiards
+Air Hockey
+House of Cards
+Craps
+Slot Machine
+Croquet
+Skee-Ball
+Chinese Checkers
+Bananagrams
+Connect Four
+Dominoes
+Dots and Boxes
+Hangman
+MASH
+Consequences
+Mafia
+Pit
+Werewolf
+sublist_tv
+77 Sunset 
+Abbott and Costello
+ABC World News
+Adventures of Superman
+I Love Lucy
+Father Knows Best
+Gunsmoke
+Dragnet
+Perry Mason
+Lassie
+The Honeymooners
+Wagon Train
+Leave It to Beaver
+The Twilight Zone
+Bonanza
+The Danny Thomas Show
+Have Gun Will Travel
+Amos 'n' Andy
+The Rifleman
+The Jack Benny Show
+Rawhide
+The Real McCoys
+The Ed Sullivan Show
+You Bet Your Life
+The Donna Reed Show
+Dennis the Menace
+The Red Skeleton Show
+Colgate Comedy Hour
+Howdy Doody
+Burns and Allen
+American Bandstand
+The Life and Legend of Wyatt Earp
+Your Show of Shows
+Captain Kangaroo
+The Adventures of Tin Tin
+Maverick
+Our Miss Brooks
+Alfred Hitchcock Presents
+Bachelor Father
+The Mickey Mouse Club
+I've Got a Secret
+The $64,000 Question
+Peter Gunn
+The Bob Cummings Show
+Wanted Dead or Alive
+Cheyenne
+My Little Margie
+I married Joan
+Beat the Clock
+Blind Date
+Boots and Saddles
+Buck Rogers
+Buffalo Bill Jr.
+Can You Top This?
+The Cisco Kid
+Crusader
+Davy Crockett
+The Deputy
+The Dick Clark Show
+Down You Go
+The Eddy Arnold Show
+Flash Gordon
+Flight
+Frank Sinatra Show
+Fury
+Guiding Light
+Highway Patrol
+Hold That Camera
+How to Marry a Millionaire
+I Led Three Lives
+It Could Be You
+It's a Great Life
+It's Polka Time
+It's a Small World
+Jazz Party
+The Johnny Carson Show
+Johnny Ringo
+Jukebox Jury
+Keep Talking
+Ladies Before Gentleman
+Lash of the West
+Life Begins at Eighty
+Life of Riley
+Life with Luigi
+Lights Out
+The Lineup
+The Lone Ranger
+Love Story
+Macy's Thanksgiving Day Parade
+Major League Baseball
+Make Me Laugh
+The Man Behind the Badge
+Manhunt
+Manhattan Spotlight
+Meet the Press
+Men into Space
+The Mickey Rooney Show
+Mighty Muse
+Name That Tune
+Night Editor
+The Old American Barn Dance
+One Man's Family
+Passport to Danger
+Pentagon
+The Pet Shop
+The Phil Silvers Show
+Pick the Winner
+PGA Tour
+Queen For a Day
+Racket Squad
+The Rebel
+The Restless Gun
+Ripley's Believe It or Not!
+Riverboat
+The Rough Riders
+Saber of London
+Science Fiction Theater
+Scotland Yard
+Search For Tomorrow
+Sherlock Holmes
+Space Patrol
+Strike It Rich
+Stop the Music
+This Is Alice
+This Is the Life
+Three Steps To Heaven
+Time Will Tell
+The Tony Martin Show
+Twenty Questions
+Two for the Money
+The Untouchables
+The Whistler
+Zorro
+Bewitched
+The Andy Griffith Show
+The Beverly Hillbillies
+I dream of Jeannie
+Get Smart
+Gilligan's Island
+Hogan's Heroes
+The Munsters
+The Dick Van Dyke Show
+Lost in Space
+Green Acres
+The Brady Bunch
+My Three Sons
+Star Trek
+Petticoat Junction
+The Addams Family
+The Avengers
+My Favorite Martian
+The Wild Wild West
+The Carol Burnett Show
+Mission: Impossible
+Mister Ed
+60 Minutes
+The Alaskans
+Angel
+The Bill Cosby Show
+The Bing Crosby Show
+Black Saddle
+The Blue Angels
+Blue Light
+Bob Hope Presents
+Bronco
+Checkmate
+The Dakotas
+Diagnosis: Unknown
+Death Valley Days
+Daniel Boone
+Discovery
+Divorce Court
+The Doctors
+Dream House
+The Everglades
+Face the Nation
+Fast Draw
+General Electric Theater
+Glenn Miller Time
+The Greatest Show on Earth
+The Green Hornet
+Harry's Girls
+He Said, She Said
+Hollywood Squares
+Home Run Derby
+Hong Kong
+Iron Horse
+It Takes Two
+It Takes a Thief
+The Jack LaLanne Show
+Jeopardy!
+Jericho
+The Jerry Lewis Show
+The Jonny Cash Show
+Journey to the Center of the Earth
+The Judy Garland Show
+Klondike
+Lamp Unto y Feet
+Lawbreakers
+The Loner
+The Long, Hot Summer
+Liar's Club
+Man With a Camera
+The Man Who Never Was
+The Mighty Heroes
+Mister Rogers' Neighborhood
+Mischief Makers
+N.Y.P.D
+NASCAR
+The Name of the Game
+Never Too Young
+The Newlywed Game
+NBA
+NFL
+The Nurses
+One Life to Live
+The Outcasts
+Our Private World
+People Will Talk
+Personality
+The Queen & I
+Rango
+Run for Your Life
+Sea Hunt
+Where the Heart Is
+Wild Kingdom
+Win with the Stars
+The Witness
+Happy Days
+M*A*S*H
+All in the Family
+The Jeffersons
+The Love Boat
+Good Times
+Sanford and Son
+Three's Company
+Fantasy Island
+Mork & Mindy
+Charlie's Angles
+The Six Million Dollar Man
+The Bionic Woman
+Barney Miller
+The Partridge Family
+The Bob Newhart Show
+Little House on the Prairie
+The Facts of Life
+The Waltons
+One Day at a Time
+The Flip Wilson Show
+Taxi
+Dukes of Hazzard
+Saturday Night Live
+The Amazing Spider-Man
+Archer
+Austin City Limits
+Bad News Bears
+Battlestar Galactica
+Blank Check
+Candid Camera
+Card Sharks
+Chopper One
+Detective School
+Dirty Sally
+The Electric Company
+Family Feud
+The Flying Nun
+Friends
+Gambit
+The Ghost Busters
+Gigglesnort Hotel
+High Rollers
+How the West Was Won
+The Hunchback of Notre Dame
+Ironside
+Jackpot
+Jigsaw
+Live from Lincoln Center
+Logan's Run
+Lifeline
+The Magnificent Marble Machine
+Make a Wish
+Memory Game
+The Muppet Show
+On Location
+Paper Moon
+The Oregon Trail
+Password
+Pass the Buck
+Pyramid
+Quark
+Real People
+Return to Peyton Place
+The Rookies
+Salem's Lot
+Sesame Street
+Shaft
+Shoot for the Starts
+Shazam!
+The Silent Force
+Soap
+Soul Train
+Starsky & Hutch
+Sunshine
+Sword of Justice
+Switch
+Tattletales
+That's My Mama
+This Old House
+Today
+U.S. Farm Report
+Wacko
+Wheel of Fortune
+Wonder Woman
+The Young and the Restless
+Zoom
+Cheers
+Alf
+Knight Rider
+Miami Vice
+Family Ties
+Magnum, P.I.
+The Golden Girls
+Growing Pains
+Hill Street Blues
+The Wonder Years
+Who's the Boss?
+MacGyver
+Airwolf
+Perfect Stranger
+Moonlighting
+Night Court
+The Fall Guy
+Silver Spoons
+Full House
+Diff'rent Strokes
+Family Matters
+Bosom Buddies
+21 Jump Street
+Quantum Leap
+My Two Dads
+Saved by the Bell
+48 Hours
+Against the Odds
+American Gladiators
+As the World Turns
+American Experience
+Back Porch Video
+Baywatch
+Blue Thunder
+Bullseye
+Call to Glory
+Chain Reaction
+Chronicle
+Concrete Cowboys
+Cops
+Dallas
+The David Letterman Show
+Dirty Dancing
+Dynasty
+Face the Music
+Family Man
+Finders Keepers
+Formula One
+Friday the 13th
+Frontline
+Gator Tales
+Geraldo
+Gimme a Break!
+Glitter
+Good Morning America
+Hail to the Chief
+Hard Knocks
+Hardball
+Jake and the Fatman
+The Jim Henson Hour
+The Joker's Wild
+Larry King Live
+The Late Show
+Livewire
+Manimal
+The Martian Chronicles
+Matchmaker
+Matlock
+Murder, She Wrote
+The New Show
+NFL Primetime
+Nightly Business Report
+Nobody's Perfect
+Nightmare Classics
+Nick Rocks
+One of the Boys
+The Oprah Winfrey Show
+Our House
+Out of This World
+Paper Dolls
+The People's Court
+Photon
+Pinwheel
+The Popcorn Kid
+The Quest
+Ray Bradbury Theater
+Reading Rainbow
+Raising Miranda
+The Redd Foxx Show
+Rejoice in the Lord
+Remington Steele
+Remote Control
+Rescue 911
+Riptide
+Second Chance
+Seven Brides for Seven Brothers
+The Simpsons
+Slime Time
+Snoops
+Soundstage
+Space Starts
+NOVA
+St. Elsewhere
+Starcade
+Superboy
+Sweethearts
+Tales from the Crypt
+Teen Summit
+This Is Your Life
+Those Amazing Animals
+Time Machine
+To Tell The Truth
+Together We Stand
+True Blue
+Walking Tall
+We Got It Made
+Welcome to Pooh Corner
+When the Whistle Blows
+Whiz Kids
+Wild Chicago
+Wipeout
+Wisdom of the Gnomes
+Wizards and Warriors
+The Fresh Prince of Bel-Air
+Boy Meets World
+Buffy the Vampire Slayer
+Seinfeld
+The X-Files
+Home Improvement
+Rugrats
+Twin Peaks
+Dawson's Creek
+Freaks and Geeks
+Frasier
+Are You Afraid of the Dark?
+Sabrina the Teenage Witch
+The Nanny
+Hey Arnold!
+Blossom
+Animaniacs
+The Powerpuff Girls
+Doug
+Mad About You
+Roseanne
+Sister, Sister
+Kenan & Kel
+Law & Order
+All That
+In Living Color
+3rd Rock from the Sun
+Martin
+Dexter's Laboratory
+The Amanda Show
+Salute Your Shorts
+7th Heaven
+Adventures of Swiss Family Robinson
+All My Children
+America's Dumbest Criminals
+America's Most Wanted
+Antiques Roadshow
+The Awful Truth
+Barney & Friends
+Beverly Hills, 90210
+Bibleman
+The Blame Game
+Blue's Clues
+Billy Nye the Science Guy
+The Bold and the Beautiful
+Cave Kids
+Charmed
+The Chevy Chase Show
+Cobra
+Computer Doctor
+The Crocodile Hunter
+Crossroads
+Cupid
+The Daily Show
+Days of Our Lives
+Diagnosis: Murder
+Doctor Doctor
+Elmo Save Christmas
+Entertainment Tongight
+The Faculty
+The Flash
+Friday Night Fights
+Globe Trekker
+Good Eats
+Goosebumps
+Grown Ups
+Hawkeye
+Head of the Class
+Haywire
+Hearts Are Wild
+Hey Dude
+Home
+Hot Country Nights
+Hotel Malibu
+House Rules
+I Can't Believe You Said That
+In the Heat of the Night
+Inside Edition
+It's a Miracle
+Jack & Jill
+The Jamie Foxx Show
+Jay Jay the Jet Plane
+Jerry Springer
+The Jon Stewart Show
+Judge Judy
+Kids These Days
+Kratts' Creatures
+Lamb Chop's Play-Along
+Land of the Lost
+Last Call
+Lifestories
+Like We Care
+Mad TV
+Martha Stewart Living
+McGee and Me!
+Mighty Morphin Power Rangers
+My Classic Car
+The Naked Truth
+Nashville Now
+National Geographic Explorer
+The Price is Right
+The Office
+Open House
+The Outer Limits
+Outside the Lines
+Party Girl
+Payne
+Pee-wee's Playhouse
+The Planet's Funniest Animals
+America's Funniest Videos
+Raging Planet
+Reality Check
+Reverb
+Richie Rich
+Rolie Polie Olie
+The Rosie O'Donnell Show
+Roswell
+Rude Awakening
+Running the Halls
+Secret Life of Toys
+Shop 'til You Drop
+Showtime at the Apollo
+Sleepwalkers
+Small Talk
+The Sopranos
+Space Rangers
+Street Justice
+Swans Crossing
+Teen Angel
+That's My Dog
+They Came from Outer Space
+Think Tank
+Thunder Alley
+The Tom Green Show
+Touched by an Angel
+Toxic Crusaders
+True Colors
+Unsolved Mysteries
+Walker, Texas Ranger
+The West Wing
+Where Are They Now?
+Who Wants to Be a Millionaire
+The Whoopi Goldberg Show
+Who's Line Is It Anyway?
+Wishbone
+World Business Review
+Young Hercules
+Zoboomafoo
+Clifford the Big Red Dog
+That '70s Show
 sublist_words
 identifier
 translation
@@ -2309,7 +2890,6 @@ troubleshoot
 retirement
 nitty gritty
 structures
-computer
 brochure
 switch
 investigator
@@ -2331,12 +2911,10 @@ endangered
 Luxembourg
 parent
 magazine
-calculator
 unlimited
 examination
 extreme
 individual
-chocolate
 interaction
 declaration
 compound
@@ -2678,7 +3256,6 @@ Indonesian
 Brad Pitt
 disorder
 evolution
-stockings
 lightning
 animation
 conventional
@@ -2741,7 +3318,6 @@ incomplete
 transfer
 you snooze, you lose
 proof is in the pudding
-chicken
 improvement
 dire straits
 announce
@@ -2771,7 +3347,6 @@ consecutive
 yesterday
 attendance
 indicator
-Bono
 communicate
 specific
 terrorism
@@ -2934,7 +3509,6 @@ express
 supplier
 Liechtenstein
 evaluate
-dictionary
 production
 battlefield
 original
@@ -2964,7 +3538,6 @@ direction
 elimination
 provide
 surveillance
-vegetables
 director
 out of the blue
 Arlington
@@ -2973,13 +3546,11 @@ correspondence
 regulation
 celebrity
 automation
-microwave
 northeast
 Pittsburgh
 regard
 drop the ball
 from dawn till dusk
-calendar
 variable
 describe
 petroleum
@@ -3074,7 +3645,6 @@ symposium
 penalty
 wholesale
 put it another way
-basketball
 practical
 equation
 company
@@ -3143,7 +3713,6 @@ assurance
 subscriber
 collaboration
 listen
-telephone
 aluminum
 surrounding
 quarterly
@@ -3225,7 +3794,6 @@ insulation
 watershed
 industrial
 organize
-refrigerator
 association
 celebration
 character
@@ -3328,7 +3896,6 @@ pay it forward
 immigrant
 mortality
 I’m hosed
-butterfly
 workstation
 occur
 chancellor
@@ -3381,12 +3948,10 @@ authorize
 Oh Shoot!
 valuation
 reproduction
-underwear
 Afghanistan
 forward
 architecture
 continuity
-controller
 execution
 conviction
 variations
@@ -3431,7 +3996,6 @@ destination
 composition
 federation
 calibration
-champagne
 in a sense
 feeling blue
 receive
@@ -3453,7 +4017,6 @@ You can say that again!
 exploring
 comparison
 especially
-television
 Hollywood
 Secretariat
 excellent
@@ -3494,13 +4057,11 @@ Lithuania
 multimedia
 geography
 achieving
-textbook
 amenity
 specify
 breakfast
 transcription
 Get out of here!
-Serena Williams
 occurrence
 certification
 Lafayette
@@ -3529,7 +4090,6 @@ graduation
 meaningful
 complement
 sexuality
-Bugs Bunny
 preliminary
 vulnerability
 You’re telling me!
@@ -3559,7 +4119,6 @@ religious
 activate
 providence
 Montgomery
-monitor
 investigate
 governance
 eligible
@@ -3588,7 +4147,6 @@ sweat the small stuff
 preparation
 consolidation
 argument
-bathroom
 specialty
 beg to differ
 management
@@ -3640,7 +4198,6 @@ vegetable
 incentive
 separate
 respiratory
-fireplace
 scholarship
 identical
 dependence
@@ -3677,7 +4234,6 @@ destruction
 satisfactory
 screensaver
 that rings a bell
-sunglasses
 widescreen
 society
 strategy
@@ -3725,7 +4281,6 @@ performance
 photoshop
 exclusive
 surrounded
-headphones
 marketing
 involvement
 respect
@@ -3806,7 +4361,6 @@ hypothetical
 nature calls
 feature
 discuss
-blackberry
 first come first served
 themselves
 postcard
@@ -3830,7 +4384,6 @@ resource
 accessory
 forgotten
 assistant
-photograph
 conservative
 opportunity
 voluntary
@@ -3920,7 +4473,6 @@ subdivision
 limitation
 equivalent
 internship
-Friends
 counsel
 incredible
 hold on a second
@@ -3932,7 +4484,6 @@ Mediterranean
 prospective
 commit
 healthcare
-jewelry
 creature
 activation
 technician
@@ -3992,7 +4543,6 @@ strengthen
 advantages
 intersection
 advertise
-encyclopedia
 hospital
 conclude
 emergency
@@ -4043,13 +4593,11 @@ Christine
 resistance
 Charleston
 innovation
-bracelet
 community
 introduce
 disability
 stability
 placement
-Madonna
 Evanescence
 characterize
 election
@@ -4106,7 +4654,6 @@ indicate
 southwest
 indication
 extraction
-keyboard
 Abba
 occupation
 behavior

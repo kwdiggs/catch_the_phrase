@@ -16,6 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
     CheckBox animals;
     CheckBox household;
     CheckBox games;
+    CheckBox tv;
     CheckBox words;
 
     @Override
@@ -60,17 +61,23 @@ public class SettingsActivity extends AppCompatActivity {
                 else
                     editor.putBoolean("sublist_household", false).apply();
                 break;
-            case R.id.checkbox_words:
-                if (checked)
-                    editor.putBoolean("sublist_words", true).apply();
-                else
-                    editor.putBoolean("sublist_words", false).apply();
-                break;
             case R.id.checkbox_games:
                 if (checked)
                     editor.putBoolean("sublist_games", true).apply();
                 else
                     editor.putBoolean("sublist_games", false).apply();
+                break;
+            case R.id.tv:
+                if (checked)
+                    editor.putBoolean("sublist_tv", true).apply();
+                else
+                    editor.putBoolean("sublist_tv", false).apply();
+                break;
+            case R.id.checkbox_words:
+                if (checked)
+                    editor.putBoolean("sublist_words", true).apply();
+                else
+                    editor.putBoolean("sublist_words", false).apply();
                 break;
         }
     }
@@ -81,6 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
         animals = (CheckBox) findViewById(R.id.checkbox_animals);
         household = (CheckBox) findViewById(R.id.checkbox_household);
         games = (CheckBox) findViewById(R.id.checkbox_games);
+        tv = (CheckBox) findViewById(R.id.tv);
         words = (CheckBox) findViewById(R.id.checkbox_words);
     }
 
@@ -92,6 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
         animals.setChecked(preferences.getBoolean("sublist_animals", false));
         household.setChecked(preferences.getBoolean("sublist_household", false));
         games.setChecked(preferences.getBoolean("sublist_games", false));
+        tv.setChecked(preferences.getBoolean("sublist_tv", false));
         words.setChecked(preferences.getBoolean("sublist_words", false));
     }
 }

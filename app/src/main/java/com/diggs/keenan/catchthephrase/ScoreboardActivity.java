@@ -16,7 +16,7 @@ public class ScoreboardActivity extends AppCompatActivity {
     private int teamTwoScore;
 
     // number of points needed to win
-    private final int GOAL = 1;
+    private final int GOAL = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

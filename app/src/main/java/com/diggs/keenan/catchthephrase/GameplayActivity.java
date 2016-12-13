@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,8 +89,9 @@ public class GameplayActivity extends AppCompatActivity {
         wordList = new ArrayList<>();
         currentWordIndex = getCurrentIndex();
 
-        // parameterize preferences and word list
+        // parameterize preferences (use default if needed) then lists
         preferences = getSharedPreferences("categories", MODE_PRIVATE);
+        checkCategorySelection();
         populateList();
     }
 
@@ -202,6 +202,35 @@ public class GameplayActivity extends AppCompatActivity {
         return currentIndex;
     }
 
+    // ensure user has selected at least 1 category
+    // if not, automatically apply 'words and phrases' category
+    private void checkCategorySelection() {
+        preferences = getSharedPreferences("categories", MODE_PRIVATE);
+
+        boolean noCategoriesSelected = true;
+        if (preferences.getBoolean("sublist_people", false)) {
+            noCategoriesSelected = false;
+        } else if (preferences.getBoolean("sublist_food", false)) {
+            noCategoriesSelected = false;
+        } else if (preferences.getBoolean("sublist_games", false)) {
+            noCategoriesSelected = false;
+        } else if (preferences.getBoolean("sublist_household", false)) {
+            noCategoriesSelected = false;
+        } else if (preferences.getBoolean("sublist_games", false)) {
+            noCategoriesSelected = false;
+        } else if (preferences.getBoolean("sublist_tv", false)) {
+            noCategoriesSelected = false;
+        } else if (preferences.getBoolean("sublist_words", false)) {
+            noCategoriesSelected = false;
+        }
+
+        if (noCategoriesSelected) {
+            editor = preferences.edit();
+            editor.putBoolean("sublist_words", true).apply();
+        }
+
+    }
+
     // get new word when screen is tapped
     private void setScreenListener() {
         wordView.setOnClickListener(new View.OnClickListener() {
@@ -216,9 +245,6 @@ public class GameplayActivity extends AppCompatActivity {
                     durations[SLOW] = (r.nextInt((35 - 25) + 1) + 25) * 1000;
                     durations[MEDIUM] = (r.nextInt((30 - 20) + 1) + 20) * 1000;
                     durations[FAST] = (r.nextInt((25 - 15) + 1) + 15) * 1000;
-                    durations[SLOW] = 1000;
-                    durations[MEDIUM] = 1000;
-                    durations[FAST] = 1000;
                     durations[BUZZER] = 4500;
                     play();
                 }

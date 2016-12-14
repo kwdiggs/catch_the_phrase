@@ -733,6 +733,7 @@ U2
 Jennifer Lopez
 Hercules
 Larry the Cucumber
+*
 sublist_food
 candy necklace
 marshmallow
@@ -979,7 +980,7 @@ Americano
 tonic water
 preservers
 honey
-SweetTarts
+SweeTarts
 Sloppy Joe
 Great Northern Beans
 M&M's
@@ -1232,6 +1233,7 @@ toast
 dragon fruit
 Scotch ale
 cookies
+*
 sublist_animals
 chipmunk
 flatworm
@@ -1528,6 +1530,7 @@ sparrow
 grizzly
 weevil
 salmonfly
+*
 sublist_household
 board game
 driveway
@@ -2082,6 +2085,7 @@ vacuum cleaner
 drill
 bubble wrap
 swimming pool
+*
 sublist_games
 Crazy Eights
 Spades
@@ -2281,7 +2285,9 @@ Consequences
 Mafia
 Pit
 Werewolf
+*
 sublist_tv
+M*A*S*H
 77 Sunset 
 Abbott and Costello
 ABC World News
@@ -2870,6 +2876,7 @@ Young Hercules
 Zoboomafoo
 Clifford the Big Red Dog
 That '70s Show
+*
 sublist_words
 identifier
 translation

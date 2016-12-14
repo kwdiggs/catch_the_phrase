@@ -24,8 +24,9 @@ public class GameplayActivity extends AppCompatActivity {
     // file name
     private final String WORD_BANK = "word_bank.txt";
 
-    // preferences
-    SharedPreferences preferences;
+    // categoryPreferences
+    SharedPreferences categoryPreferences;
+    SharedPreferences localPreferences;
     SharedPreferences.Editor editor;
 
     // holds the words
@@ -87,10 +88,9 @@ public class GameplayActivity extends AppCompatActivity {
 
         // put words in ArrayList of Strings
         wordList = new ArrayList<>();
-        currentWordIndex = getCurrentIndex();
 
-        // parameterize preferences (use default if needed) then lists
-        preferences = getSharedPreferences("categories", MODE_PRIVATE);
+        // parameterize categoryPreferences (use default if needed) then the word list
+        categoryPreferences = getSharedPreferences("categories", MODE_PRIVATE);
         checkCategorySelection();
         populateList();
     }
@@ -107,7 +107,7 @@ public class GameplayActivity extends AppCompatActivity {
             while (line != null) {
                 if (line.equals("*")) {
                     String sublistLabel = reader.readLine();
-                    boolean userSet = preferences.getBoolean(sublistLabel, true);
+                    boolean userSet = categoryPreferences.getBoolean(sublistLabel, true);
 
                     // if user set this sublist (category) for use, add its words
                     // otherwise skip this sublist entirely
@@ -197,38 +197,35 @@ public class GameplayActivity extends AppCompatActivity {
 
     // get the word number
     private int getCurrentIndex() {
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
-        int currentIndex = preferences.getInt("CurrentIndex", 0);
-        return currentIndex;
+        localPreferences = getSharedPreferences("index", MODE_PRIVATE);
+        currentWordIndex = localPreferences.getInt("CurrentIndex", 0);
+        return currentWordIndex;
     }
 
     // ensure user has selected at least 1 category
     // if not, automatically apply 'words and phrases' category
     private void checkCategorySelection() {
-        preferences = getSharedPreferences("categories", MODE_PRIVATE);
-
         boolean noCategoriesSelected = true;
-        if (preferences.getBoolean("sublist_people", false)) {
+        if (categoryPreferences.getBoolean("sublist_people", false)) {
             noCategoriesSelected = false;
-        } else if (preferences.getBoolean("sublist_food", false)) {
+        } else if (categoryPreferences.getBoolean("sublist_food", false)) {
             noCategoriesSelected = false;
-        } else if (preferences.getBoolean("sublist_games", false)) {
+        } else if (categoryPreferences.getBoolean("sublist_animals", false)) {
             noCategoriesSelected = false;
-        } else if (preferences.getBoolean("sublist_household", false)) {
+        } else if (categoryPreferences.getBoolean("sublist_household", false)) {
             noCategoriesSelected = false;
-        } else if (preferences.getBoolean("sublist_games", false)) {
+        } else if (categoryPreferences.getBoolean("sublist_games", false)) {
             noCategoriesSelected = false;
-        } else if (preferences.getBoolean("sublist_tv", false)) {
+        } else if (categoryPreferences.getBoolean("sublist_tv", false)) {
             noCategoriesSelected = false;
-        } else if (preferences.getBoolean("sublist_words", false)) {
+        } else if (categoryPreferences.getBoolean("sublist_words", false)) {
             noCategoriesSelected = false;
         }
 
         if (noCategoriesSelected) {
-            editor = preferences.edit();
+            editor = categoryPreferences.edit();
             editor.putBoolean("sublist_words", true).apply();
         }
-
     }
 
     // get new word when screen is tapped
@@ -286,8 +283,8 @@ public class GameplayActivity extends AppCompatActivity {
         super.onPause();
 
         // record the current word index
-        preferences = getPreferences(MODE_PRIVATE);
-        editor = preferences.edit();
+        localPreferences = getSharedPreferences("index", MODE_PRIVATE);
+        editor = localPreferences.edit();
         editor.putInt("CurrentIndex", currentWordIndex).apply();
 
         // release resources
@@ -317,7 +314,7 @@ public class GameplayActivity extends AppCompatActivity {
         createMediaPlayers();
 
         // remember position in word list
-        preferences = getPreferences(MODE_PRIVATE);
-        currentWordIndex = preferences.getInt("CurrentIndex", 0);
+        localPreferences = getSharedPreferences("index", MODE_PRIVATE);
+        currentWordIndex = getCurrentIndex();
     }
 }

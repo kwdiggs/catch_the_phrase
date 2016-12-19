@@ -1,4 +1,5 @@
 # Catch The Phrase
+<img src="google-play-badge.png" style="align: right; "/>
 <img src="icon.png" style="text-align: center;"/>
 
 <h2>Overview</h2>

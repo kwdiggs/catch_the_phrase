@@ -1,6 +1,6 @@
 # Catch The Phrase
-<img src="google-play-badge.png" style="align: right; "/>
 <img src="icon.png" style="text-align: center;"/>
+<img src="google-play-badge.png" width="200px"/>
 
 <h2>Overview</h2>
 Catch the Phrase is a hot potato word game for two teams. When the game begins, a timer will start and the app will display one clue at a time. The player holding the app device must

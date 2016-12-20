@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         return !firstTime;
     }
 
+    // activate all categories
     private void setPrefs() {
         SharedPreferences preferences = getSharedPreferences("categories", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();

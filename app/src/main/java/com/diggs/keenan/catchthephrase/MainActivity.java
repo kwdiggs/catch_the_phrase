@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setPrefs() {
-        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("categories", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
         editor.putBoolean("sublist_people", true);
@@ -80,5 +80,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("sublist_games", true);
         editor.putBoolean("sublist_tv", true);
         editor.putBoolean("sublist_words", true);
+        editor.apply();
     }
 }

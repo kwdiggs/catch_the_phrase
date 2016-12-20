@@ -1,6 +1,7 @@
 package com.diggs.keenan.catchthephrase;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (isFirstTime()) {
+            setPrefs();
+        }
     }
 
     // launch SettingsActivity
@@ -50,5 +55,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         FullScreenHelper.goFullscreen(this);
+    }
+
+    // check if first time user is playing this app
+    private boolean isFirstTime() {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        boolean firstTime = preferences.getBoolean("FirstTime", false);
+
+        if (!firstTime) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("FirstTime", true).apply();
+        }
+        return !firstTime;
+    }
+
+    private void setPrefs() {
+        SharedPreferences preferences = getSharedPreferences("categories", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putBoolean("sublist_people", true);
+        editor.putBoolean("sublist_food", true);
+        editor.putBoolean("sublist_animals", true);
+        editor.putBoolean("sublist_household", true);
+        editor.putBoolean("sublist_games", true);
+        editor.putBoolean("sublist_tv", true);
+        editor.putBoolean("sublist_words", true);
+        editor.apply();
     }
 }
